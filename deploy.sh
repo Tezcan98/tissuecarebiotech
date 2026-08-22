@@ -13,7 +13,6 @@ rsync -avz --delete \
   --exclude ".git" \
   --exclude ".gitignore" \
   --exclude "deploy.sh" \
-  --exclude "deploy/" \
   -e "ssh -p ${REMOTE_PORT}" \
   ./ "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}/"
 

@@ -19,12 +19,5 @@ gelince bölümler (Hero, Hakkımızda, Ürünler/Hizmetler, İletişim) eklenec
 
 ## Deploy
 
-Site sunucuda `/home/tissuecarebiotech` altında, `serve` ile systemd servisi
-olarak (port 4001) çalışır; nginx bu porta reverse proxy yapar.
-
-- İlk kurulum (sunucuda bir kez): `deploy/server-setup.sh` — bkz. script
-  içindeki açıklama. systemd unit dosyasını (`deploy/tissuecarebiotech.service`)
-  ve nginx konfigürasyonunu (`deploy/tissuecarebiotech.nginx.conf`) kurar,
-  certbot ile SSL alır.
-- Her değişiklikten sonra: `./deploy.sh` — dosyaları rsync ile
-  `/home/tissuecarebiotech`'e senkronize eder.
+`./deploy.sh` — dosyaları rsync ile sunucuda `/home/tissuecarebiotech`'e
+senkronize eder.
