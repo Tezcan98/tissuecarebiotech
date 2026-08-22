@@ -19,8 +19,16 @@ gelince bölümler (Hero, Hakkımızda, Ürünler/Hizmetler, İletişim) eklenec
 
 ## Deploy
 
-`./deploy.sh` — sunucuda `/home/tissuecarebiotech` içeriğini repodan
-günceller (ilk çalıştırmada klonlar, sonrasında `git pull`), ardından
-sunucudaki diğer sitelere dokunmadan `tissuecarebiotech.com` /
-`www.tissuecarebiotech.com` için nginx config'ini ekleyip nginx'i reload
-eder.
+`./deploy.sh` sunucuda, `/home/tissuecarebiotech` altına klonlanmış bu
+repo'nun içinden root olarak çalıştırılır. `git pull` ile içeriği
+günceller, ardından sunucudaki diğer sitelere dokunmadan
+`tissuecarebiotech.com` / `www.tissuecarebiotech.com` için nginx
+config'ini ekleyip nginx'i reload eder.
+
+İlk kurulum (bir kereye mahsus, sunucuda elle):
+
+```
+git clone https://github.com/Tezcan98/tissuecarebiotech.git /home/tissuecarebiotech
+cd /home/tissuecarebiotech
+./deploy.sh
+```

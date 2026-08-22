@@ -1,28 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REMOTE_USER="root"
-REMOTE_HOST="31.58.245.116"
-REMOTE_PORT="22"
-REMOTE_PATH="/home/tissuecarebiotech"
-REPO_URL="https://github.com/Tezcan98/tissuecarebiotech.git"
+# Bu script sunucuda, repo'nun içinden (/home/tissuecarebiotech) root
+# olarak çalıştırılır: ./deploy.sh
+
+SITE_PATH="/home/tissuecarebiotech"
 DOMAIN="tissuecarebiotech.com"
 WWW_DOMAIN="www.tissuecarebiotech.com"
 NGINX_SITE_NAME="tissuecarebiotech.com"
 
-ssh -p "${REMOTE_PORT}" "${REMOTE_USER}@${REMOTE_HOST}" \
-  REMOTE_PATH="${REMOTE_PATH}" REPO_URL="${REPO_URL}" \
-  DOMAIN="${DOMAIN}" WWW_DOMAIN="${WWW_DOMAIN}" NGINX_SITE_NAME="${NGINX_SITE_NAME}" \
-  bash -s <<'REMOTE_SCRIPT'
-set -euo pipefail
-
-# Site içeriği: ilk çalıştırmada klonla, sonrasında pull et.
-if [ -d "${REMOTE_PATH}/.git" ]; then
-  git -C "${REMOTE_PATH}" pull
-else
-  mkdir -p "${REMOTE_PATH}"
-  git clone "${REPO_URL}" "${REMOTE_PATH}"
-fi
+cd "${SITE_PATH}"
+git pull
 
 # Nginx: sunucudaki diğer sitelere dokunmadan sadece bu domain'e ait
 # config dosyasını ekle/güncelle.
@@ -34,7 +22,7 @@ server {
     listen [::]:80;
     server_name ${DOMAIN} ${WWW_DOMAIN};
 
-    root ${REMOTE_PATH};
+    root ${SITE_PATH};
     index index.html;
 
     location / {
@@ -50,4 +38,3 @@ systemctl enable --now nginx
 systemctl reload nginx
 
 echo "Deploy tamamlandı: http://${DOMAIN}"
-REMOTE_SCRIPT
