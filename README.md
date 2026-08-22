@@ -5,17 +5,18 @@ Statik HTML/CSS/JS mimarisi ile hazırlanan kurumsal tanıtım sitesi.
 ## Yapı
 
 ```
-index.html          # Ana sayfa (şirket bilgileri gelene kadar "yakında" ekranı)
+index.html          # Ana sayfa (Biz Kimiz, Tekniklerimiz, Hizmetlerimiz, Alt Yapımız, İletişim)
 css/style.css        # Stiller
-js/                  # İçerik netleşince eklenecek scriptler
+js/main.js           # Mobil menü aç/kapat
 assets/images/       # Görseller
 ```
 
 ## Durum
 
-Şirket içerikleri (hakkımızda, hizmetler, iletişim vb.) henüz teslim edilmedi.
-Bu yüzden ana sayfa geçici olarak bir "yakında" ekranı gösteriyor. İçerikler
-gelince bölümler (Hero, Hakkımızda, Ürünler/Hizmetler, İletişim) eklenecek.
+Kurumsal içerik (misyon/vizyon/değerler, teknikler, alt yapı) eklendi.
+Hizmetlerimiz/Satışlarımız bölümündeki bazı başlıkların altı ve iletişim
+bilgilerinden adres/e-posta henüz teslim edilmedi, sayfada "İçerik
+hazırlanıyor" / "Yakında eklenecek" olarak işaretli.
 
 ## Deploy
 
