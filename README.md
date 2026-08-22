@@ -16,3 +16,15 @@ assets/images/       # Görseller
 Şirket içerikleri (hakkımızda, hizmetler, iletişim vb.) henüz teslim edilmedi.
 Bu yüzden ana sayfa geçici olarak bir "yakında" ekranı gösteriyor. İçerikler
 gelince bölümler (Hero, Hakkımızda, Ürünler/Hizmetler, İletişim) eklenecek.
+
+## Deploy
+
+Site sunucuda `/home/tissuecarebiotech` altında, `serve` ile systemd servisi
+olarak (port 4001) çalışır; nginx bu porta reverse proxy yapar.
+
+- İlk kurulum (sunucuda bir kez): `deploy/server-setup.sh` — bkz. script
+  içindeki açıklama. systemd unit dosyasını (`deploy/tissuecarebiotech.service`)
+  ve nginx konfigürasyonunu (`deploy/tissuecarebiotech.nginx.conf`) kurar,
+  certbot ile SSL alır.
+- Her değişiklikten sonra: `./deploy.sh` — dosyaları rsync ile
+  `/home/tissuecarebiotech`'e senkronize eder.
