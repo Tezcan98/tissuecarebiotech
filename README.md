@@ -19,5 +19,8 @@ gelince bölümler (Hero, Hakkımızda, Ürünler/Hizmetler, İletişim) eklenec
 
 ## Deploy
 
-`./deploy.sh` — dosyaları rsync ile sunucuda `/home/tissuecarebiotech`'e
-senkronize eder.
+`./deploy.sh` — sunucuda `/home/tissuecarebiotech` içeriğini repodan
+günceller (ilk çalıştırmada klonlar, sonrasında `git pull`), ardından
+sunucudaki diğer sitelere dokunmadan `tissuecarebiotech.com` /
+`www.tissuecarebiotech.com` için nginx config'ini ekleyip nginx'i reload
+eder.
