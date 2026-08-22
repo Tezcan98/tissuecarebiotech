@@ -6,14 +6,7 @@ REMOTE_HOST="31.58.245.116"
 REMOTE_PORT="22"
 REMOTE_PATH="/home/tissuecarebiotech"
 
-cd "$(dirname "$0")"
-
-rsync -avz --delete \
-  --chmod=D755,F644 \
-  --exclude ".git" \
-  --exclude ".gitignore" \
-  --exclude "deploy.sh" \
-  -e "ssh -p ${REMOTE_PORT}" \
-  ./ "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}/"
+ssh -p "${REMOTE_PORT}" "${REMOTE_USER}@${REMOTE_HOST}" \
+  "cd ${REMOTE_PATH} && git pull"
 
 echo "Deploy tamamlandı: https://tissuecarebiotech.com"
