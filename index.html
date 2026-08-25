@@ -1,267 +1,485 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TissueCare Biyoteknoloji A.Ş.</title>
-  <meta name="description" content="TissueCare Biyoteknoloji A.Ş. — moleküler biyoteknoloji, biyomühendislik ve biyomedikal alanlarında Ar-Ge hizmetleri." />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tissuecare Biyoteknoloji A.Ş. — Science for One Health</title>
+<meta name="description" content="Tissuecare Biyoteknoloji A.Ş. olarak moleküler biyoteknoloji, biyomühendislik ve biyomedikal alanlarında fikir aşamasından raporlamaya kadar uçtan uca araştırma ve geliştirme hizmeti veriyoruz. Hücre kültürü, hücre bankacılığı, CRISPR-Cas ve eksozom uygulamalarında yanınızdayız.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#004276; --navy-deep:#00294a; --navy-soft:#0a5a97;
+  --green:#3aa95a; --lime:#6cb33f;
+  --ink:#0d1b26; --slate:#5a6b78; --line:#dbe4ea; --paper:#f3f7f9; --white:#fff;
+  --maxw:1180px; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:#fff;color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Sora",system-ui,sans-serif;line-height:1.16;letter-spacing:-.02em;margin:0}
+p{margin:0}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:4px}
+
+/* eyebrow — logodaki dağılan kare motifi */
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:7px;flex:none;
+  background:linear-gradient(var(--green),var(--green)) 0 0/7px 7px no-repeat,
+             linear-gradient(var(--green),var(--green)) 10px 0/5px 5px no-repeat,
+             linear-gradient(var(--green),var(--green)) 19px 0/3px 3px no-repeat}
+.on-dark .eyebrow{color:var(--lime)}
+.on-dark .eyebrow::before{background-image:linear-gradient(var(--lime),var(--lime)),linear-gradient(var(--lime),var(--lime)),linear-gradient(var(--lime),var(--lime))}
+
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:26px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand span{font-family:"Sora";font-weight:600;font-size:15px;color:var(--navy);line-height:1.1}
+.brand span small{display:block;font-family:"IBM Plex Mono";font-weight:400;font-size:9.5px;
+  letter-spacing:.22em;color:var(--slate);text-transform:uppercase;margin-top:2px}
+.menu{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:500}
+.menu a{padding:6px 0;position:relative;color:#28414f}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .25s}
+.menu a:hover::after,.menu a:focus-visible::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:100px;
+  font-family:"Sora";font-weight:600;font-size:14.5px;border:1.5px solid transparent;transition:.2s;cursor:pointer}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy-soft)}
+.btn-ghost{border-color:var(--line);color:var(--navy);background:#fff}.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.btn-lime{background:var(--lime);color:#08301b}.btn-lime:hover{background:var(--green);color:#fff}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0}
+
+/* hero */
+.hero{overflow:hidden;background:radial-gradient(900px 500px at 88% 6%,#eaf6ef 0%,transparent 60%),linear-gradient(180deg,#fbfdfe,#fff)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:80px;padding-bottom:80px}
+.hero h1{font-size:clamp(33px,4.3vw,53px);font-weight:600;color:var(--navy)}
+.hero h1 em{font-style:normal;color:var(--green)}
+.tagline{font-family:"Sora";font-style:italic;font-weight:500;color:var(--navy-soft);font-size:17px;margin-bottom:14px}
+.hero p.lead{margin-top:22px;font-size:17.5px;color:var(--slate);max-width:540px}
+.hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+
+/* One Health imzası */
+.triad{width:100%;max-width:440px;margin-inline:auto}
+.triad .ring{transform-origin:center;animation:spin 48s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.triad .node{cursor:pointer}.triad .node circle{transition:.3s}
+.triad text{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.12em}
+.triad-note{margin-top:14px;text-align:center;font-size:14.5px;color:var(--slate);min-height:46px;max-width:400px;margin-inline:auto}
+.triad-note b{color:var(--navy);font-family:"Sora"}
+
+/* değer bandı */
+.band{background:var(--navy);color:#fff;padding:34px 0}
+.band .wrap{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.band .k{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);white-space:nowrap}
+.band p{font-family:"Sora";font-weight:500;font-size:clamp(17px,2vw,22px);line-height:1.5}
+
+section{padding:88px 0}
+.sec-head{max-width:700px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(27px,3vw,37px);font-weight:600;color:var(--navy)}
+.sec-head p{margin-top:16px;color:var(--slate);font-size:17px}
+.alt{background:var(--paper)}
+.dark{background:linear-gradient(160deg,var(--navy-deep),var(--navy) 72%);color:#fff}
+.dark .sec-head h2{color:#fff}.dark .sec-head p{color:#b9d3e6}
+
+/* biz kimiz */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.mv{display:grid;gap:18px}
+.mv .card h3{font-size:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.25s}
+.card h3{font-size:19px;color:var(--navy);margin-bottom:10px}
+.card p{color:var(--slate);font-size:15.5px}
+.card .code{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.14em;color:var(--green);text-transform:uppercase;display:block;margin-bottom:13px}
+.hoverable:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,66,118,.10)}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+
+/* etik ilkeler — numaralı, çünkü tanımlı bir ilke seti */
+.principles{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}
+.principle{padding:26px 22px 26px 0;border-right:1px solid var(--line)}
+.principle:last-child{border-right:0;padding-right:0}
+.principle .n{font-family:"IBM Plex Mono";font-size:12px;color:var(--green);letter-spacing:.1em}
+.principle h4{font-size:17px;color:var(--navy);margin:10px 0 8px}
+.principle p{font-size:14.5px;color:var(--slate)}
+.stance{display:grid;gap:0;margin-top:44px;border-top:1px solid var(--line)}
+.stance div{display:grid;grid-template-columns:230px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.stance h4{font-size:17px;color:var(--navy)}
+.stance p{color:var(--slate);font-size:15.5px}
+
+/* teknikler */
+.tech{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.tech article{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.tech article.wide{grid-column:1/-1;flex-direction:row}
+.tech article.wide .ph{width:44%;flex:none}
+.tech .ph{background:#eef3f6;aspect-ratio:16/10;overflow:hidden}
+.tech article.wide .ph{aspect-ratio:auto}
+.tech .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tech article:hover .ph img{transform:scale(1.04)}
+.tech .body{padding:28px}
+.tech h3{font-size:20px;color:var(--navy);margin-bottom:10px}
+.tech p{color:var(--slate);font-size:15.5px}
+.methods{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.methods li{font-family:"IBM Plex Mono";font-size:14px;color:#dbe9f3;padding-left:22px;position:relative}
+.methods li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--lime);border-radius:2px}
+
+/* hizmetler */
+.svc{border-top:1px solid var(--line)}
+.svc article{display:grid;grid-template-columns:64px 1fr 150px;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.svc .n{font-family:"IBM Plex Mono";font-size:13px;color:var(--green);letter-spacing:.08em}
+.svc h3{font-size:19px;color:var(--navy);margin-bottom:7px}
+.svc p{color:var(--slate);font-size:15.5px}
+.svc .cta{text-align:right;font-family:"Sora";font-weight:600;font-size:14px;color:var(--navy);white-space:nowrap}
+.svc .cta::after{content:" →"}
+.tag{display:inline-block;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:#9a7a1a;background:#fff6e0;border:1px solid #f0dcae;border-radius:100px;padding:3px 10px;margin-left:8px}
+
+/* markalar / alt yapı */
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.slot{border:1px dashed var(--line);border-radius:12px;background:#fff;height:96px;display:grid;place-items:center;
+  font-family:"IBM Plex Mono";font-size:12px;color:#9fb2be;text-align:center;padding:10px}
+.lab{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.lab img{border-radius:var(--r);border:1px solid rgba(255,255,255,.16)}
+.lab ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.lab li{padding-left:24px;position:relative;color:#c5dced;font-size:15.5px}
+.lab li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;background:var(--lime);border-radius:2px}
+
+/* iletişim */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
+.info dl{margin:0;display:grid;gap:20px}
+.info dt{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.info dd{margin:6px 0 0;color:#d7e7f2;font-size:16.5px}
+.info dd a:hover{color:var(--lime)}
+form{display:grid;gap:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9fc6e2;margin-bottom:7px}
+input,textarea,select{width:100%;padding:13px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.07);color:#fff;font-family:inherit;font-size:15.5px}
+input::placeholder,textarea::placeholder{color:#7ea6c4}
+input:focus,textarea:focus,select:focus{border-color:var(--lime);outline:none;background:rgba(255,255,255,.12)}
+select option{color:#0d1b26}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#b9d3e6}
+.consent input{width:16px;height:16px;flex:none;margin-top:4px}
+
+footer{background:var(--navy-deep);color:#a9c8dd;padding:54px 0 24px;font-size:14.5px}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px}
+.f-grid h4{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;font-weight:400}
+.f-grid a{display:block;padding:5px 0;color:#a9c8dd}.f-grid a:hover{color:#fff}
+footer .brand span{color:#fff}
+.f-bot{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#7ea6c4}
+
+.notice{background:#fff6e0;border-bottom:1px solid #f0dcae;color:#7a5a12;font-family:"IBM Plex Mono";font-size:12.5px;text-align:center;padding:9px 16px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .menu{display:none}.burger{display:block}
+  .menu.open{display:flex;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:12px 24px 20px;border-bottom:1px solid var(--line)}
+  .menu.open a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{display:none}
+  .hero .wrap,.two,.contact,.lab,.tech{grid-template-columns:1fr;gap:38px}
+  .tech article.wide{flex-direction:column}.tech article.wide .ph{width:100%;aspect-ratio:16/9}
+  .principles{grid-template-columns:1fr 1fr}
+  .principle{border-right:0;border-bottom:1px solid var(--line);padding-right:22px}
+  .band .wrap{grid-template-columns:1fr;gap:12px}
+  .slots{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  section{padding:62px 0}
+  .g2,.g3,.row,.f-grid,.methods,.principles{grid-template-columns:1fr}
+  .stance div,.svc article{grid-template-columns:1fr;gap:8px}
+  .svc .cta{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand">TissueCare <span>Biyoteknoloji A.Ş.</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="siteNav">
-        <a href="#biz-kimiz">Biz Kimiz?</a>
-        <a href="#teknikler">Tekniklerimiz</a>
-        <a href="#hizmetler">Hizmetlerimiz</a>
-        <a href="#alt-yapi">Alt Yapımız</a>
-        <a href="#iletisim">İletişim</a>
-      </nav>
+
+<div class="notice">Taslak: sarı etiketli alanlar (adres, e-posta, hizmet açıklamaları, marka logoları) sizden gelecek içerikle doldurulacak.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span>Tissuecare<small>Biyoteknoloji A.Ş.</small></span></a>
+    <button class="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu">
+      <a href="#kimiz">Biz Kimiz</a>
+      <a href="#degerler">Değerlerimiz</a>
+      <a href="#teknikler">Tekniklerimiz</a>
+      <a href="#hizmetler">Hizmetlerimiz</a>
+      <a href="#altyapi">Alt Yapımız</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <a class="btn btn-primary" href="#iletisim">Bize ulaşın</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <p class="tagline">Science for One Health</p>
+      <h1>Araştırmalarınızı <em>doğru kaynaklarla</em> gerçeğe dönüştürüyoruz.</h1>
+      <p class="lead">Moleküler biyoteknoloji, biyomühendislik ve biyomedikal projelerinizde fikir aşamasından sonuç raporuna kadar tüm süreçleri sizinle birlikte yürütüyoruz. 2021 yılından bugüne, üniversiteler, kamu kurumları ve özel sektör için insan ve hayvan sağlığını iyileştirecek ürün ve yöntemler geliştiriyoruz.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#teknikler">Tekniklerimizi görün</a>
+        <a class="btn btn-ghost" href="#hizmetler">Hizmet ve analizler</a>
+      </div>
     </div>
-  </header>
+    <div>
+      <svg class="triad" viewBox="0 0 420 380" role="img" aria-label="One Health: insan, hayvan ve çevre sağlığı">
+        <g class="ring"><circle cx="210" cy="196" r="132" fill="none" stroke="#dbe4ea" stroke-width="1.5" stroke-dasharray="3 9"/></g>
+        <circle cx="210" cy="196" r="96" fill="none" stroke="#eef3f6" stroke-width="26"/>
+        <path d="M210 100 A96 96 0 0 1 293 244" fill="none" stroke="#3aa95a" stroke-width="26" stroke-linecap="round" opacity=".92"/>
+        <path d="M293 244 A96 96 0 0 1 127 244" fill="none" stroke="#004276" stroke-width="26" stroke-linecap="round" opacity=".92"/>
+        <path d="M127 244 A96 96 0 0 1 210 100" fill="none" stroke="#6cb33f" stroke-width="26" stroke-linecap="round" opacity=".92"/>
+        <g stroke="#004276" stroke-width="3" fill="none" opacity=".8">
+          <path d="M196 158 C 232 178, 232 214, 196 234"/><path d="M224 158 C 188 178, 188 214, 224 234"/>
+          <path d="M199 172h22M194 196h32M199 220h22" stroke-width="2.4"/>
+        </g>
+        <g class="node on" data-t="insan" tabindex="0" role="button" aria-label="İnsan"><circle cx="210" cy="100" r="34" fill="#004276"/><text x="210" y="104" text-anchor="middle" fill="#fff">İNSAN</text></g>
+        <g class="node" data-t="hayvan" tabindex="0" role="button" aria-label="Hayvan"><circle cx="293" cy="244" r="34" fill="#3aa95a"/><text x="293" y="248" text-anchor="middle" fill="#fff">HAYVAN</text></g>
+        <g class="node" data-t="cevre" tabindex="0" role="button" aria-label="Çevre"><circle cx="127" cy="244" r="34" fill="#6cb33f"/><text x="127" y="248" text-anchor="middle" fill="#093a15">ÇEVRE</text></g>
+      </svg>
+      <p class="triad-note" id="triadNote"><b>İnsan —</b> Ülkemize yenilikçi ve erişilebilir tanı ile tedavi çözümleri kazandırmayı hedefliyoruz.</p>
+    </div>
+  </div>
+</section>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <h1>Bilimden çözüme, laboratuvardan sahaya.</h1>
-        <p>
-          Moleküler biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uçtan uca
-          deneysel araştırma ve geliştirme hizmetleri sunuyoruz.
-        </p>
-        <a href="#iletisim" class="btn">Bize Ulaşın</a>
-      </div>
-    </section>
+<div class="band">
+  <div class="wrap">
+    <span class="k">Yaşama saygı / One Health</span>
+    <p>Attığımız her adımda biyosferi oluşturan tüm canlıların yaşam kalitesini ve refahını gözeterek çalışıyoruz.</p>
+  </div>
+</div>
 
-    <section id="biz-kimiz" class="section">
-      <div class="container">
-        <h2>Biz Kimiz?</h2>
+<!-- BİZ KİMİZ -->
+<section id="kimiz">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="eyebrow">Biz Kimiz</p>
+      <h2 style="font-size:clamp(27px,3vw,37px);font-weight:600;color:var(--navy)">2021'den beri deneysel Ar-Ge'nin her aşamasında yanınızdayız</h2>
+      <p style="margin-top:18px;color:var(--slate);font-size:17px">Tissuecare Biyoteknoloji A.Ş. olarak moleküler biyoloji ve biyomühendislik projelerinizi sadece yürütmekle kalmıyor, baştan sona sizinle birlikte tasarlıyor ve hayata geçiriyoruz. En büyük motivasyonumuz, ülkemize yenilikçi teşhis ve tedavi yöntemleri kazandırırken bu alandaki dışa bağımlılığı azaltmak.</p>
+      <p style="margin-top:16px;color:var(--slate);font-size:17px">Akademik çalışmalardan kamu ve özel sektör projelerine kadar geniş bir yelpazede, insan ve hayvan sağlığını ileriye taşıyacak araştırma deneyimimizi ve laboratuvar altyapımızı bilim dünyasıyla paylaşıyoruz.</p>
+    </div>
+    <div class="mv rv">
+      <div class="card"><span class="code">Misyon</span><p>Araştırma süreçlerinizi omuzlayarak, ülkemizin ihtiyaç duyduğu yenilikçi teşhis ve tedavi çözümlerini uçtan uca araştırma hizmetleriyle hayata geçirmek.</p></div>
+      <div class="card"><span class="code">Vizyon</span><p>Bilim insanlarına ihtiyaç duydukları güvenilir altyapıyı sunarak, önümüzdeki 10 yıl içinde insan ve hayvan sağlığında çığır açacak yöntem ve ürünlerin çıkış noktası olmak.</p></div>
+    </div>
+  </div>
+</section>
 
-        <div class="card">
-          <h3>Misyon</h3>
-          <p>
-            Tissuecare Biyoteknoloji A.Ş., moleküler biyoteknoloji, biyomühendislik ve
-            biyomedikal alanlarında uçtan uca deneysel araştırma ve geliştirme faaliyetleri
-            tasarlama, planlama, yürütme, denetleme ve raporlama faaliyeti yürütmek böylece,
-            ikame ve/veya yenilikçi teşhis ve tedavi ürünlerini ülkemize kazandırmak amacıyla
-            2021 yılında kurulmuştur. Şirketimiz; üniversitelere, diğer kamu ve özel
-            kuruluşlara insan ve hayvan sağlığı ve refahı üzerine ürün veya yöntem geliştirme
-            üzerine deneyimini, hizmet ve alt yapısını sunmaktadır.
-          </p>
+<!-- DEĞERLER -->
+<section id="degerler" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Değerlerimiz</p>
+      <h2>Bilimsel etik ve güvenirlik bizim için taviz verilmezdir</h2>
+      <p>Çalışmalarımızı sadece bilimsel kurallara değil, beş temel evrensel etik ilkeye dayandırıyoruz.</p>
+    </div>
+    <div class="principles rv">
+      <div class="principle"><span class="n">01</span><h4>Otonomi</h4><p>İnsan katılımlı araştırmalarda bağımsız etik kurul onayını şart koşuyor; katılımcıların süreç hakkında tam olarak bilgilendirilmesine ve kendi hür iradeleriyle dahil olmalarına büyük önem veriyoruz.</p></div>
+      <div class="principle"><span class="n">02</span><h4>Zarar Vermeme</h4><p>Daha işin en başında projenin canlılara ve çevreye verebileceği olası riskleri hesaplıyor, doğayı ve yaşamı koruyacak tüm önlemleri titizlikle alıyoruz.</p></div>
+      <div class="principle"><span class="n">03</span><h4>Yararlılık</h4><p>Elde ettiğimiz her bulgunun bireylere, topluma ve yaşadığımız çevreye kalıcı ve pozitif bir değer katmasını hedefliyoruz.</p></div>
+      <div class="principle"><span class="n">04</span><h4>Adalet</h4><p>Bilimsel çıktıların yarattığı değerlerden araştırmacıların, iş ortaklarımızın ve toplumun adil bir şekilde faydalanmasını sağlıyoruz.</p></div>
+      <div class="principle"><span class="n">05</span><h4>Şeffaflık ve Tekrarlanabilirlik</h4><p>Gizli saklı süreçlere inanmıyoruz; araştırma geliştirme laboratuvarımızda atılan her adımı geriye dönük olarak izlenebilir ve tekrar edilebilir bir sistemle belgeliyoruz.</p></div>
+    </div>
+    <div class="stance rv">
+      <div><h4>Yenilikçilik</h4><p>Alışılagelmiş yöntemlerin tıkandığı noktada kalıpların dışına çıkıyor; ezber bozan sorular sorarak sağlık ve refah için özgün çözümler üretiyoruz.</p></div>
+      <div><h4>Kalite ve Hassasiyet</h4><p>Tüm yönetim, üretim ve ulaştırma süreçlerimizi evrensel standartlarda yürütüyor, kaliteyi hiçbir koşulda tesadüfe bırakmıyoruz.</p></div>
+      <div><h4>Disiplinler Arası İş Birliği</h4><p>Bilginin paylaşıldıkça büyüdüğüne inanıyor; ekibimiz ve iş ortaklarımız arasında güvene ve ortak akla dayalı, üretken bir çalışma ortamı kurguluyoruz.</p></div>
+      <div><h4>Yaşama Saygı (One Health)</h4><p>Biyosferi oluşturan her bir unsurun varlığına, refahına ve sağlığına fayda sağlamayı en büyük sorumluluğumuz olarak görüyoruz.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEKNİKLER -->
+<section id="teknikler">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Tekniklerimiz / Teknolojilerimiz</p>
+      <h2>Laboratuvarımızda uyguladığımız yöntemler</h2>
+    </div>
+    <div class="tech">
+      <article class="wide rv">
+        <div class="ph"><img src="assets/images/doku-hucre-kultur.jpg" alt="Hücre kültürü uygulaması"></div>
+        <div class="body">
+          <h3>Doku – Hücre Kültür Uygulamaları</h3>
+          <p>Memeli hücre ve dokularını laboratuvar ortamında, ideal yapay çevre şartlarını sağlayarak titizlikle büyütüyor ve yaşatıyoruz. Çalışmalarınızın ihtiyacına göre transfeksiyon ve transdüksiyon yöntemleriyle hücrelere yeni karakterler kazandırıyor ve projelerinize en uygun hücre soylarını sizin için üretiyoruz.</p>
         </div>
-
-        <div class="card">
-          <h3>Vizyon</h3>
-          <p>
-            Tissuecare Biyoteknoloji A.Ş., ülkemizde bilim insanlarını doğru kaynaklarla
-            buluşturarak; 10 yıl içerisinde insan ve hayvan sağlığını, refahını ve yaşam
-            kalitesini geliştiren yöntemlere ve ürünlere aracılık ve kaynaklık etmektir.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Değerlerimiz</h3>
-          <p>Bilimsel etik ve güvenirlik bizim için:</p>
-          <ul class="values-list">
-            <li>
-              <strong>Otonomi (Özerklik):</strong> Araştırmalara insan katılımının yalnızca,
-              bağımsız ve yasal etik kurullarca onaylanmış ve denetlenen araştırmalara,
-              katılımcıların tam ve açık olarak bilgilendirilmesi, özgür iradeyle ve
-              gönüllülük iradeleri esasıyla katılmasıdır.
-            </li>
-            <li>
-              <strong>Zarar Vermeme:</strong> Araştırmanın planlanma aşamasında araştırma
-              süresince insan, hayvan ve tüm çevre unsurları için risklerin belirlenmesi,
-              koruyucu ve telafi edici tedbirlerin alınmasıdır.
-            </li>
-            <li>
-              <strong>Yararlılık:</strong> Araştırma bulgularının bireyler, toplumlar ve
-              çevrenin herhangi bir unsurunun sağlığı, refahı, yaşam kalitesi ve varlığının
-              devamlılığı için faydalı olmasıdır.
-            </li>
-            <li>
-              <strong>Adalet:</strong> Araştırma bulgularının kullanımı ve dağılımının
-              araştırmacılar, ortaklar ve toplumlarla adil olarak belirlenmesidir.
-            </li>
-            <li>
-              <strong>Şeffaflık ve Tekrarlanabilirlik:</strong> Deneysel araştırma ve
-              geliştirme faaliyetlerinin tüm aşamaları geriye dönük olarak izlenebilir ve
-              tekrar edilebilir olmasıdır.
-            </li>
-          </ul>
-          <p>
-            <strong>Yenilikçilik</strong> bizim için birey, toplum, hayvan ve çevre sağlığı ve
-            refahı için mevcut yöntem ve çözümlerin kısıtlılığını aşmaya yönelik özgün soru
-            sorma, çözüm planlama ve hayata geçirmedir.
-          </p>
-          <p>
-            <strong>Kalite ve hassasiyet</strong> bizim için ilişkili evrensel yönetim, üretim
-            ve ulaştırma standartlarının tüm çalışmalarımızda karşılık bulmasıdır.
-          </p>
-          <p>
-            <strong>Disiplinler arası işbirliği</strong> bizim için şirket, çalışan ve müşteri
-            ortak ihtiyaç ve hedeflerini gerçekleştirmek üzere güvene, bilgi ve deneyim
-            paylaşımına dayalı özgün mikroçevrelerin yaratılmasıdır.
-          </p>
-          <p>
-            <strong>Yaşama saygı (One Health)</strong> bizim için biyosferi oluşturan her
-            unsurun varlığına, sağlığına, refahına ve yaşam kalitesine fayda sağlayacak
-            şekilde çalışmaktır.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="teknikler" class="section section-alt">
-      <div class="container">
-        <h2>Tekniklerimiz / Teknolojilerimiz</h2>
-
-        <div class="card">
+      </article>
+      <article class="rv">
+        <div class="body">
           <h3>Hücre İzolasyonu ve Karakterizasyonu</h3>
-          <p>
-            Şirketimiz memeli primer dokulardan hücrelerin izolasyonu ve karakterizasyonu
-            (hücre tipinin, fizyolojik özelliklerinin belirlenmesi, çoğaltılması ve
-            büyütülmesi) gerçekleştirmektedir.
-          </p>
+          <p>Doğrudan memeli doku örneklerinden elde ettiğimiz primer hücreleri dikkatlice ayırıyor, fizyolojik özelliklerini netleştirerek doğru hücre tipiyle çalışmanızı garantiliyor ve ardından hücreleri çoğaltıyoruz.</p>
         </div>
-
-        <div class="card card-media">
-          <img src="assets/images/doku-hucre-kultur.jpg" alt="Doku-hücre kültür uygulaması laboratuvar görüntüsü" loading="lazy" />
-          <div>
-            <h3>Doku-Hücre Kültür Uygulamaları</h3>
-            <p>
-              Doku ve hücre kültürü, hücreleri ve dokuları kontrollü yapay çevre içerisinde
-              yaşatılması veya büyütülmesi tekniğidir. Şirketimiz, memeli hücre ve dokularını
-              hücre kültür şartlarında çoğaltmakta veya yaşatmaktadır. Ayrıca transfeksiyon ve
-              transdüksiyon yöntemleri ile hücrelere yeni karakter kazandırıp çalışmaya uygun
-              hücre soylarının çoğaltılmasını sağlamaktadır.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
+      </article>
+      <article class="rv">
+        <div class="body">
           <h3>Hücre Bankacılığı</h3>
-          <p>
-            Şirketimiz hücre bankacılığı ile araştırmalar için güvenilir ve kontaminasyon
-            içermeyecek şekilde memeli hücrelerini büyütmekte ve kriyoprezervasyon ile
-            saklamaktadır.
-          </p>
+          <p>Memeli hücrelerini kontaminasyon riskinden tamamen izole edilmiş bir şekilde büyütüyor ve uzun soluklu araştırmalarınız için kriyoprezervasyon teknolojisiyle güvenle muhafaza ediyoruz.</p>
         </div>
-
-        <div class="card card-media card-media-reverse">
-          <img src="assets/images/crispr-cas.png" alt="CRISPR-Cas genetik düzenleme illüstrasyonu" loading="lazy" />
-          <div>
-            <h3>CRISPR-Cas Uygulamaları</h3>
-            <p>
-              Şirketimiz memeli hücrelerinde CRISPR Cas sistemleri kullanarak genetik
-              düzenleme (knock out veya knock in), epigenetik düzenleme (transkripsiyonun
-              artırılması veya azaltılması) ve transkriptom düzenlemesi (mRNA düzeyinde
-              müdahale ile transkriptomun düzenlenmesi) gerçekleştirmektedir.
-            </p>
-          </div>
+      </article>
+      <article class="rv">
+        <div class="ph"><img src="assets/images/crispr-cas.png" alt="CRISPR-Cas uygulamaları"></div>
+        <div class="body">
+          <h3>CRISPR-Cas Uygulamaları</h3>
+          <p>Projenizin ihtiyacına göre genleri susturuyor veya yeni genler ekliyoruz (knock out / knock in). CRISPR-Cas sistemlerinin gücünü kullanarak memeli hücrelerinde epigenetik, transkripsiyon ve mRNA seviyesinde hassas düzenlemeler yapıyoruz.</p>
         </div>
-
-        <div class="card card-media">
-          <img src="assets/images/eksozom.png" alt="Ekstraselüler vesikül (eksozom) illüstrasyonu" loading="lazy" />
-          <div>
-            <h3>Ekstraselüler Vesikül (Eksozom) İzolasyon ve Karakterizasyonu</h3>
-            <p>
-              Şirketimiz, memeli hücre kültürlerinden ekstraselüler vesikül izolasyonu,
-              eksozom karakterizasyonu (SDS Page ve Western Blotting uygulaması, elektron
-              mikroskop görüntülemesi ve NTA analizleriyle) gerçekleştirmektedir.
-            </p>
-          </div>
+      </article>
+      <article class="rv">
+        <div class="ph"><img src="assets/images/eksozom.png" alt="Ekstraselüler vesikül (eksozom)"></div>
+        <div class="body">
+          <h3>Ekstraselüler Vesikül (Eksozom) İzolasyonu ve Karakterizasyonu</h3>
+          <p>Memeli hücre kültürlerinden eksozomları özenle izole ediyor; ardından SDS-PAGE, Western Blotting, elektron mikroskobu görüntülemesi ve NTA analizleri gibi ileri düzey tekniklerle onları detaylıca karakterize ediyoruz.</p>
         </div>
-
-        <div class="card">
-          <h3>Diğer Moleküler Biyoloji ve Hücre Biyolojisi Uygulamaları</h3>
-          <ul class="chip-list">
-            <li>Plazmid Çoğaltma ve İzolasyon</li>
-            <li>Transfeksiyon ve Transdüksiyon</li>
-            <li>DNA/RNA İzolasyon</li>
-            <li>DNA/RNA Miktar Tayini</li>
-            <li>Real Time PCR</li>
-            <li>Protein Miktar Tayini</li>
-            <li>SDS Page - Western Blotting Yöntemleri</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="hizmetler" class="section">
-      <div class="container">
-        <h2>Hizmetlerimiz / Satışlarımız</h2>
-        <div class="service-grid">
-          <div class="service-item">
-            <h3>Doku-Kök Hücre Uygulama Eğitimi</h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-          <div class="service-item">
-            <h3>KOSGEB/TÜBİTAK Proje Başvurularının Hazırlanması Eğitimi</h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-          <div class="service-item">
-            <h3>Hücre Hatlarının Oluşturulması <span>(Deneysel Kullanım Amaçlı)</span></h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-          <div class="service-item">
-            <h3>Karakterize Edilmiş Ekstraselüler Vesikül (Eksozom) Eldesi <span>(Deneysel Kullanım Amaçlı)</span></h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-          <div class="service-item">
-            <h3>Real Time PCR Analizi</h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-          <div class="service-item">
-            <h3>SDS-PAGE ve Western Blotting Analizi</h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-          <div class="service-item">
-            <h3>Yetkili Temsilcisi Olduğumuz Markalar</h3>
-            <p class="tbd">İçerik hazırlanıyor.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="alt-yapi" class="section section-alt">
-      <div class="container">
-        <h2>Alt Yapımız</h2>
-        <div class="card card-media">
-          <img src="assets/images/alt-yapi.jpg" alt="TissueCare Biyoteknoloji laboratuvarı" loading="lazy" />
-          <div>
-            <p>
-              Deneysel araştırma ve geliştirme faaliyetlerimizi, hücre kültürü, moleküler
-              biyoloji ve karakterizasyon çalışmalarına uygun donanımla ekipli
-              laboratuvarımızda yürütüyoruz.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="iletisim" class="section">
-      <div class="container">
-        <h2>İletişim</h2>
-        <div class="card contact-card">
-          <p><strong>Tissuecare Biyoteknoloji A.Ş.</strong></p>
-          <p>Telefon: <a href="tel:+905065605817">0506 560 5817</a></p>
-          <p>Adres: <span class="tbd">Yakında eklenecek</span></p>
-          <p>E-posta: <span class="tbd">Yakında eklenecek</span></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 Tissuecare Biyoteknoloji A.Ş.</p>
+      </article>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="js/main.js"></script>
+<section class="dark on-dark" style="padding:64px 0">
+  <div class="wrap">
+    <p class="eyebrow">Diğer moleküler biyoloji ve hücre biyolojisi uygulamalarımız</p>
+    <ul class="methods rv">
+      <li>Plazmid çoğaltma ve izolasyon</li>
+      <li>Transfeksiyon ve transdüksiyon</li>
+      <li>DNA / RNA izolasyon</li>
+      <li>DNA / RNA miktar tayini</li>
+      <li>Real Time PCR</li>
+      <li>Protein miktar tayini</li>
+      <li>SDS-PAGE – Western Blotting yöntemleri</li>
+    </ul>
+  </div>
+</section>
+
+<!-- HİZMETLER -->
+<section id="hizmetler" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Hizmetlerimiz / Satışlarımız</p>
+      <h2>Eğitim, üretim ve analiz hizmetleri</h2>
+      <p>Her başlığın altındaki kısa açıklama sizden gelecek metinle doldurulacak.</p>
+    </div>
+    <div class="svc rv">
+      <article><span class="n">H-01</span><div><h3>Doku – Kök Hücre Uygulama Eğitimi</h3><p>Açıklama eklenecek.<span class="tag">içerik bekleniyor</span></p></div><a class="cta" href="#iletisim">Bilgi alın</a></article>
+      <article><span class="n">H-02</span><div><h3>KOSGEB / TÜBİTAK Proje Başvurularının Hazırlanması Eğitimi</h3><p>Açıklama eklenecek.<span class="tag">içerik bekleniyor</span></p></div><a class="cta" href="#iletisim">Bilgi alın</a></article>
+      <article><span class="n">H-03</span><div><h3>Hücre Hatlarının Oluşturulması <span style="font-weight:400;font-size:15px;color:var(--slate)">(deneysel kullanım amaçlı)</span></h3><p>Açıklama eklenecek.<span class="tag">içerik bekleniyor</span></p></div><a class="cta" href="#iletisim">Bilgi alın</a></article>
+      <article><span class="n">H-04</span><div><h3>Karakterize Edilmiş Ekstraselüler Vesikül (Eksozom) Eldesi <span style="font-weight:400;font-size:15px;color:var(--slate)">(deneysel kullanım amaçlı)</span></h3><p>Açıklama eklenecek.<span class="tag">içerik bekleniyor</span></p></div><a class="cta" href="#iletisim">Bilgi alın</a></article>
+      <article><span class="n">H-05</span><div><h3>Real Time PCR Analizi</h3><p>Açıklama eklenecek.<span class="tag">içerik bekleniyor</span></p></div><a class="cta" href="#iletisim">Numune gönderin</a></article>
+      <article><span class="n">H-06</span><div><h3>SDS-PAGE ve Western Blotting Analizi</h3><p>Açıklama eklenecek.<span class="tag">içerik bekleniyor</span></p></div><a class="cta" href="#iletisim">Numune gönderin</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- MARKALAR -->
+<section id="markalar">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Yetkili Temsilcisi Olduğumuz Markalar</p>
+      <h2>Temsil ettiğimiz markalar</h2>
+      <p>Marka logoları ve ürün grupları eklendiğinde bu alan doldurulacak.</p>
+    </div>
+    <div class="slots rv">
+      <div class="slot">Marka logosu 1</div><div class="slot">Marka logosu 2</div>
+      <div class="slot">Marka logosu 3</div><div class="slot">Marka logosu 4</div>
+    </div>
+  </div>
+</section>
+
+<!-- ALT YAPI -->
+<section id="altyapi" class="dark on-dark">
+  <div class="wrap lab">
+    <div class="rv"><img src="assets/images/alt-yapi.jpg" alt="Tissuecare hücre kültürü laboratuvarı"></div>
+    <div class="rv">
+      <p class="eyebrow">Alt Yapımız</p>
+      <h2 style="font-size:clamp(27px,3vw,37px);font-weight:600;color:#fff">Kendi hücre kültürü laboratuvarımız</h2>
+      <ul>
+        <li>Sınıf II biyogüvenlik kabini</li>
+        <li>CO₂ inkübatör ve etüv</li>
+        <li>Santrifüj ve soğutmalı santrifüj</li>
+        <li>Kriyoprezervasyon ve derin dondurucu</li>
+        <li>Real Time PCR ve elektroforez / blotting hattı</li>
+      </ul>
+      <p style="margin-top:18px;color:#9fc6e2;font-size:14.5px">Cihaz listesi paylaştığınız envanterle güncellenecek.<span class="tag">içerik bekleniyor</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- İLETİŞİM -->
+<section id="iletisim">
+  <div class="wrap contact" style="color:var(--ink)">
+    <div class="info rv">
+      <p class="eyebrow">İletişim</p>
+      <h2 style="font-size:clamp(27px,3vw,37px);font-weight:600;color:var(--navy);margin-bottom:26px">Projenizi konuşalım</h2>
+      <dl>
+        <dt>Telefon</dt><dd style="color:var(--ink)"><a href="tel:+905065605817">0506 560 58 17</a></dd>
+        <dt>E-posta</dt><dd style="color:var(--slate)">E-posta eklenecek<span class="tag">içerik bekleniyor</span></dd>
+        <dt>Web</dt><dd style="color:var(--ink)"><a href="https://www.tissuecarebiotech.com">www.tissuecarebiotech.com</a></dd>
+        <dt>Adres</dt><dd style="color:var(--slate)">Adres eklenecek<span class="tag">içerik bekleniyor</span></dd>
+      </dl>
+    </div>
+    <form class="rv" style="--f:1" onsubmit="event.preventDefault();this.querySelector('.formmsg').textContent='Form henüz bir yere gönderilmiyor — yayına alırken e-posta bağlanacak.'">
+      <div class="row">
+        <div><label for="ad">Ad Soyad</label><input id="ad" placeholder="Adınız" required></div>
+        <div><label for="kurum">Kurum</label><input id="kurum" placeholder="Üniversite / şirket"></div>
+      </div>
+      <div class="row">
+        <div><label for="mail">E-posta</label><input id="mail" type="email" placeholder="ornek@kurum.edu.tr" required></div>
+        <div><label for="konu">Konu</label><select id="konu">
+          <option>Analiz hizmeti (PCR, Western Blot)</option><option>Hücre hattı oluşturma</option>
+          <option>Eksozom eldesi</option><option>Eğitim talebi</option>
+          <option>KOSGEB / TÜBİTAK proje desteği</option><option>Diğer</option></select></div>
+      </div>
+      <div><label for="mesaj">Mesaj</label><textarea id="mesaj" rows="4" placeholder="Çalışmanızı ve ihtiyacınızı kısaca yazın"></textarea></div>
+      <label class="consent"><input type="checkbox" required> KVKK aydınlatma metnini okudum, verilerimin işlenmesini onaylıyorum.</label>
+      <div><button class="btn btn-lime" type="submit">Mesajı gönder</button></div>
+      <p class="formmsg" style="color:var(--slate);font-size:14px"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:14px"><span>Tissuecare<small>Biyoteknoloji A.Ş.</small></span></a>
+        <p style="max-width:300px">Science for One Health — insan, hayvan ve çevre sağlığı için deneysel araştırma ve geliştirme.</p>
+      </div>
+      <div><h4>Kurumsal</h4><a href="#kimiz">Biz Kimiz</a><a href="#degerler">Değerlerimiz</a><a href="#altyapi">Alt Yapımız</a></div>
+      <div><h4>Çalışma alanları</h4><a href="#teknikler">Hücre kültürü</a><a href="#teknikler">CRISPR-Cas</a><a href="#teknikler">Eksozom</a><a href="#teknikler">Hücre bankacılığı</a></div>
+      <div><h4>İletişim</h4><a href="tel:+905065605817">0506 560 58 17</a><a href="https://www.tissuecarebiotech.com">www.tissuecarebiotech.com</a></div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Tissuecare Biyoteknoloji A.Ş. Tüm hakları saklıdır.</span>
+      <span>KVKK Aydınlatma Metni · Çerez Politikası</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const burger=document.querySelector('.burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.addEventListener('click',e=>{if(e.target.tagName==='A')menu.classList.remove('open')});
+
+const notes={
+  insan:'<b>İnsan —</b> Ülkemize yenilikçi ve erişilebilir tanı ile tedavi çözümleri kazandırmayı hedefliyoruz.',
+  hayvan:'<b>Hayvan —</b> Dostlarımızın sağlığını ve refahını artıracak ürün ve yöntemlerin geliştirilmesinde aktif rol alıyoruz.',
+  cevre:'<b>Çevre —</b> Her projemizde doğaya olan etkimizi gözetiyor, çevresel riskleri önceden belirleyip gerekli adımları atıyoruz.'
+};
+const note=document.getElementById('triadNote');
+document.querySelectorAll('.triad .node').forEach(n=>{
+  const show=()=>{document.querySelectorAll('.triad .node').forEach(x=>x.classList.remove('on'));n.classList.add('on');note.innerHTML=notes[n.dataset.t]};
+  n.addEventListener('mouseenter',show);n.addEventListener('focus',show);n.addEventListener('click',show);
+});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+</script>
 </body>
 </html>
