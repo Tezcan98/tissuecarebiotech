@@ -440,7 +440,7 @@ footer .brand span{color:#fff}
       <h2 style="font-size:clamp(27px,3vw,37px);font-weight:600;color:var(--navy);margin-bottom:26px" data-i18n="iletisim.h2">Projenizi konuşalım</h2>
       <dl>
         <dt data-i18n="iletisim.dt.telefon">Telefon</dt><dd><a href="tel:+905065605817">0506 560 58 17</a></dd>
-        <dt data-i18n="iletisim.dt.eposta">E-posta</dt><dd style="color:var(--slate)" data-i18n="iletisim.dd.eposta">E-posta eklenecek</dd>
+        <dt data-i18n="iletisim.dt.eposta">E-posta</dt><dd><a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a></dd>
         <dt data-i18n="iletisim.dt.web">Web</dt><dd><a href="https://www.tissuecarebiotech.com">www.tissuecarebiotech.com</a></dd>
         <dt data-i18n="iletisim.dt.adres">Adres</dt><dd style="color:var(--slate)" data-i18n="iletisim.dd.adres">Adres eklenecek</dd>
       </dl>
@@ -480,7 +480,10 @@ footer .brand span{color:#fff}
     </div>
     <div class="f-bot">
       <span data-i18n="footer.copyright">© 2026 Tissuecare Biyoteknoloji A.Ş. Tüm hakları saklıdır.</span>
-      <span data-i18n="footer.legal">KVKK Aydınlatma Metni · Çerez Politikası</span>
+      <span><a href="kvkk.html" style="color:inherit" data-i18n="footer.legal.kvkk">KVKK Aydınlatma Metni</a> · <a href="cerez-politikasi.html" style="color:inherit" data-i18n="footer.legal.cerez">Çerez Politikası</a></span>
+    </div>
+    <div style="text-align:center;margin-top:16px;font-size:12px;color:#5a86a8">
+      <a href="https://www.te-robotik.com.tr" target="_blank" rel="noopener" style="color:inherit">TE Danışmanlık tarafından geliştirilmiştir</a>
     </div>
   </div>
 </footer>
@@ -565,7 +568,7 @@ const i18n={
     'altyapi.note':'Cihaz listesi paylaştığınız envanterle güncellenecek.',
     'iletisim.eyebrow':'İletişim','iletisim.h2':'Projenizi konuşalım',
     'iletisim.dt.telefon':'Telefon','iletisim.dt.eposta':'E-posta','iletisim.dt.web':'Web','iletisim.dt.adres':'Adres',
-    'iletisim.dd.eposta':'E-posta eklenecek','iletisim.dd.adres':'Adres eklenecek',
+    'iletisim.dd.adres':'Adres eklenecek',
     'form.ad.label':'Ad Soyad','form.ad.placeholder':'Adınız',
     'form.kurum.label':'Kurum','form.kurum.placeholder':'Üniversite / şirket',
     'form.email.label':'E-posta','form.email.placeholder':'ornek@kurum.edu.tr',
@@ -575,12 +578,12 @@ const i18n={
     'form.mesaj.label':'Mesaj','form.mesaj.placeholder':'Çalışmanızı ve ihtiyacınızı kısaca yazın',
     'form.consent':'KVKK aydınlatma metnini okudum, verilerimin işlenmesini onaylıyorum.',
     'form.submit':'Mesajı gönder',
-    'form.successMsg':'Form henüz bir yere gönderilmiyor — yayına alırken e-posta bağlanacak.',
+    'form.successMsg':'WhatsApp\'a yönlendiriliyorsunuz, mesajınızı oradan gönderebilirsiniz.',
     'footer.tagline':'Science for One Health — insan, hayvan ve çevre sağlığı için deneysel araştırma ve geliştirme.',
     'footer.col1.h4':'Kurumsal','footer.col2.h4':'Çalışma alanları',
     'footer.link.hucrekulturu':'Hücre kültürü','footer.link.eksozom':'Eksozom','footer.link.hucrebank':'Hücre bankacılığı',
     'footer.copyright':'© 2026 Tissuecare Biyoteknoloji A.Ş. Tüm hakları saklıdır.',
-    'footer.legal':'KVKK Aydınlatma Metni · Çerez Politikası'
+    'footer.legal.kvkk':'KVKK Aydınlatma Metni','footer.legal.cerez':'Çerez Politikası'
   },
   en:{
     'nav.kimiz':'About Us','nav.degerler':'Our Values','nav.teknikler':'Our Techniques','nav.hizmetler':'Our Services',
@@ -632,7 +635,7 @@ const i18n={
     'altyapi.note':'The equipment list will be updated with the inventory you provide.',
     'iletisim.eyebrow':'Contact','iletisim.h2':"Let's talk about your project",
     'iletisim.dt.telefon':'Phone','iletisim.dt.eposta':'Email','iletisim.dt.web':'Website','iletisim.dt.adres':'Address',
-    'iletisim.dd.eposta':'Email to be added','iletisim.dd.adres':'Address to be added',
+    'iletisim.dd.adres':'Address to be added',
     'form.ad.label':'Full Name','form.ad.placeholder':'Your name',
     'form.kurum.label':'Institution','form.kurum.placeholder':'University / company',
     'form.email.label':'Email','form.email.placeholder':'you@company.com',
@@ -642,12 +645,12 @@ const i18n={
     'form.mesaj.label':'Message','form.mesaj.placeholder':'Briefly describe your work and your needs',
     'form.consent':'I have read the Privacy Notice and consent to the processing of my data.',
     'form.submit':'Send Message',
-    'form.successMsg':"This form isn't connected yet — an email address will be linked when the site goes live.",
+    'form.successMsg':"You're being redirected to WhatsApp — you can send your message from there.",
     'footer.tagline':'Science for One Health — experimental research and development for human, animal, and environmental health.',
     'footer.col1.h4':'Company','footer.col2.h4':'Focus Areas',
     'footer.link.hucrekulturu':'Cell Culture','footer.link.eksozom':'Exosomes','footer.link.hucrebank':'Cell Banking',
     'footer.copyright':'© 2026 Tissuecare Biyoteknoloji A.Ş. All rights reserved.',
-    'footer.legal':'Privacy Notice · Cookie Policy'
+    'footer.legal.kvkk':'Privacy Notice (KVKK)','footer.legal.cerez':'Cookie Policy'
   },
   ja:{
     'nav.kimiz':'会社概要','nav.degerler':'私たちの価値観','nav.teknikler':'技術','nav.hizmetler':'サービス',
@@ -699,7 +702,7 @@ const i18n={
     'altyapi.note':'機器リストは、ご提供いただく在庫情報をもとに更新されます。',
     'iletisim.eyebrow':'お問い合わせ','iletisim.h2':'プロジェクトについてご相談ください',
     'iletisim.dt.telefon':'電話','iletisim.dt.eposta':'メール','iletisim.dt.web':'ウェブサイト','iletisim.dt.adres':'住所',
-    'iletisim.dd.eposta':'メールアドレスは追って追加されます','iletisim.dd.adres':'住所は追って追加されます',
+    'iletisim.dd.adres':'住所は追って追加されます',
     'form.ad.label':'氏名','form.ad.placeholder':'お名前',
     'form.kurum.label':'所属機関','form.kurum.placeholder':'大学・企業名',
     'form.email.label':'メールアドレス','form.email.placeholder':'you@company.com',
@@ -709,12 +712,12 @@ const i18n={
     'form.mesaj.label':'メッセージ','form.mesaj.placeholder':'ご研究内容とご要望を簡潔にご記入ください',
     'form.consent':'プライバシー通知を確認し、個人情報の取り扱いに同意します。',
     'form.submit':'送信する',
-    'form.successMsg':'このフォームはまだ送信先が設定されていません。公開時にメールアドレスと連携予定です。',
+    'form.successMsg':'WhatsAppにリダイレクトされます。そちらからメッセージを送信できます。',
     'footer.tagline':'Science for One Health — 人・動物・環境の健康のための実験的研究開発。',
     'footer.col1.h4':'会社情報','footer.col2.h4':'事業分野',
     'footer.link.hucrekulturu':'細胞培養','footer.link.eksozom':'エクソソーム','footer.link.hucrebank':'セルバンキング',
     'footer.copyright':'© 2026 Tissuecare Biyoteknoloji A.Ş. 無断複写・転載を禁じます。',
-    'footer.legal':'プライバシー通知・Cookieポリシー'
+    'footer.legal.kvkk':'プライバシー通知(KVKK)','footer.legal.cerez':'Cookieポリシー'
   }
 };
 
@@ -779,8 +782,17 @@ document.querySelectorAll('.triad .node').forEach(n=>{
 
 document.getElementById('contactForm').addEventListener('submit',e=>{
   e.preventDefault();
-  const msg=(i18n[currentLang] && i18n[currentLang]['form.successMsg']) || 'Form henüz bir yere gönderilmiyor — yayına alırken e-posta bağlanacak.';
-  e.target.querySelector('.formmsg').textContent=msg;
+  const dict=i18n[currentLang]||i18n.tr;
+  const val=id=>document.getElementById(id).value.trim();
+  const lines=[
+    `${dict['form.ad.label']}: ${val('ad')}`,
+    `${dict['form.kurum.label']}: ${val('kurum')||'-'}`,
+    `${dict['form.email.label']}: ${val('mail')}`,
+    `${dict['form.konu.label']}: ${document.getElementById('konu').value}`,
+    `${dict['form.mesaj.label']}: ${val('mesaj')||'-'}`
+  ];
+  window.open(`https://wa.me/905065605817?text=${encodeURIComponent(lines.join('\n'))}`,'_blank');
+  e.target.querySelector('.formmsg').textContent=dict['form.successMsg'];
 });
 
 let savedLang='tr';
