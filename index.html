@@ -447,6 +447,9 @@ footer .brand span{color:#fff}
       </dl>
     </div>
     <form class="rv" id="contactForm" style="--f:1">
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
       <div class="row">
         <div><label for="ad" data-i18n="form.ad.label">Ad Soyad</label><input id="ad" placeholder="Adınız" data-i18n-ph="form.ad.placeholder" required></div>
         <div><label for="kurum" data-i18n="form.kurum.label">Kurum</label><input id="kurum" placeholder="Üniversite / şirket" data-i18n-ph="form.kurum.placeholder"></div>
@@ -580,7 +583,9 @@ const i18n={
     'form.mesaj.label':'Mesaj','form.mesaj.placeholder':'Çalışmanızı ve ihtiyacınızı kısaca yazın',
     'form.consent':'KVKK aydınlatma metnini okudum, verilerimin işlenmesini onaylıyorum.',
     'form.submit':'Mesajı gönder',
-    'form.successMsg':'WhatsApp\'a yönlendiriliyorsunuz, mesajınızı oradan gönderebilirsiniz.',
+    'form.sending':'Gönderiliyor…',
+    'form.successMsg':'Mesajınız gönderildi, teşekkürler! En kısa sürede size dönüş yapacağız.',
+    'form.errorMsg':'Mesaj gönderilemedi. Lütfen tekrar deneyin ya da doğrudan info@tissuecarebiotech.com adresine yazın.',
     'footer.tagline':'Science for One Health — insan, hayvan ve çevre sağlığı için deneysel araştırma ve geliştirme.',
     'footer.col1.h4':'Kurumsal','footer.col2.h4':'Çalışma alanları',
     'footer.link.hucrekulturu':'Hücre kültürü','footer.link.eksozom':'Eksozom','footer.link.hucrebank':'Hücre bankacılığı',
@@ -648,7 +653,9 @@ const i18n={
     'form.mesaj.label':'Message','form.mesaj.placeholder':'Briefly describe your work and your needs',
     'form.consent':'I have read the Privacy Notice and consent to the processing of my data.',
     'form.submit':'Send Message',
-    'form.successMsg':"You're being redirected to WhatsApp — you can send your message from there.",
+    'form.sending':'Sending…',
+    'form.successMsg':"Your message has been sent, thank you! We'll get back to you shortly.",
+    'form.errorMsg':"Your message couldn't be sent. Please try again, or email us directly at info@tissuecarebiotech.com.",
     'footer.tagline':'Science for One Health — experimental research and development for human, animal, and environmental health.',
     'footer.col1.h4':'Company','footer.col2.h4':'Focus Areas',
     'footer.link.hucrekulturu':'Cell Culture','footer.link.eksozom':'Exosomes','footer.link.hucrebank':'Cell Banking',
@@ -716,7 +723,9 @@ const i18n={
     'form.mesaj.label':'メッセージ','form.mesaj.placeholder':'ご研究内容とご要望を簡潔にご記入ください',
     'form.consent':'プライバシー通知を確認し、個人情報の取り扱いに同意します。',
     'form.submit':'送信する',
-    'form.successMsg':'WhatsAppにリダイレクトされます。そちらからメッセージを送信できます。',
+    'form.sending':'送信中…',
+    'form.successMsg':'メッセージを送信しました。ありがとうございます。追ってご連絡いたします。',
+    'form.errorMsg':'メッセージを送信できませんでした。もう一度お試しいただくか、info@tissuecarebiotech.com まで直接ご連絡ください。',
     'footer.tagline':'Science for One Health — 人・動物・環境の健康のための実験的研究開発。',
     'footer.col1.h4':'会社情報','footer.col2.h4':'事業分野',
     'footer.link.hucrekulturu':'細胞培養','footer.link.eksozom':'エクソソーム','footer.link.hucrebank':'セルバンキング',
@@ -784,19 +793,44 @@ document.querySelectorAll('.triad .node').forEach(n=>{
   n.addEventListener('mouseenter',show);n.addEventListener('focus',show);n.addEventListener('click',show);
 });
 
-document.getElementById('contactForm').addEventListener('submit',e=>{
+document.getElementById('contactForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const dict=i18n[currentLang]||i18n.tr;
   const val=id=>document.getElementById(id).value.trim();
-  const lines=[
-    `${dict['form.ad.label']}: ${val('ad')}`,
-    `${dict['form.kurum.label']}: ${val('kurum')||'-'}`,
-    `${dict['form.email.label']}: ${val('mail')}`,
-    `${dict['form.konu.label']}: ${document.getElementById('konu').value}`,
-    `${dict['form.mesaj.label']}: ${val('mesaj')||'-'}`
-  ];
-  window.open(`https://wa.me/905065605817?text=${encodeURIComponent(lines.join('\n'))}`,'_blank');
-  e.target.querySelector('.formmsg').textContent=dict['form.successMsg'];
+  const formEl=e.target;
+  const msgEl=formEl.querySelector('.formmsg');
+  const submitBtn=formEl.querySelector('button[type="submit"]');
+
+  const payload={
+    name:val('ad'),
+    institution:val('kurum'),
+    email:val('mail'),
+    subject:document.getElementById('konu').value,
+    message:val('mesaj'),
+    website:val('website')
+  };
+
+  submitBtn.disabled=true;
+  msgEl.textContent=dict['form.sending'];
+
+  try{
+    const res=await fetch('/contact-handler',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const data=await res.json();
+    if(data.ok){
+      msgEl.textContent=dict['form.successMsg'];
+      formEl.reset();
+    } else {
+      msgEl.textContent=dict['form.errorMsg'];
+    }
+  } catch(err){
+    msgEl.textContent=dict['form.errorMsg'];
+  } finally {
+    submitBtn.disabled=false;
+  }
 });
 
 let savedLang='tr';

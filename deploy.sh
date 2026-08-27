@@ -3,6 +3,12 @@ set -euo pipefail
 
 # Bu script sunucuda, repo'nun içinden (/home/tissuecarebiotech) root
 # olarak çalıştırılır: ./deploy.sh
+#
+# İletişim formu, contact-handler.js'i 127.0.0.1:8091'de çalıştıran bir
+# systemd servisi (contact-handler.service) üzerinden mesajı yerel
+# sendmail ile gönderir. Node'un ve /usr/sbin/sendmail'in sunucuda
+# kurulu olması gerekir; biri eksikse form gönderimi 502 döner ama
+# sitenin geri kalanı etkilenmez.
 
 SITE_PATH="/home/tissuecarebiotech"
 DOMAIN="tissuecarebiotech.com"
@@ -96,6 +102,12 @@ server {
         try_files \$uri \$uri/ =404;
     }
 
+    location = /contact-handler {
+        proxy_pass http://127.0.0.1:8091/contact-handler;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+    }
+
     add_header Strict-Transport-Security "max-age=15552000; includeSubDomains" always;
     add_header X-Content-Type-Options "nosniff" always;
     add_header X-Frame-Options "SAMEORIGIN" always;
@@ -132,6 +144,12 @@ server {
         try_files \$uri \$uri/ =404;
     }
 
+    location = /contact-handler {
+        proxy_pass http://127.0.0.1:8091/contact-handler;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+    }
+
     add_header X-Content-Type-Options "nosniff" always;
     add_header X-Frame-Options "SAMEORIGIN" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
@@ -144,5 +162,12 @@ ln -sf "${SITE_FILE}" "/etc/nginx/sites-enabled/${NGINX_SITE_NAME}"
 nginx -t
 systemctl enable --now nginx
 systemctl reload nginx
+
+# İletişim formu servisi: kod her deploy'da değişebileceği için servis
+# dosyası her seferinde yazılır ve süreç yeniden başlatılır.
+cp "${SITE_PATH}/contact-handler.service" /etc/systemd/system/contact-handler.service
+systemctl daemon-reload
+systemctl enable --now contact-handler
+systemctl restart contact-handler
 
 echo "Deploy tamamlandı: http://${DOMAIN}"
