@@ -3,7 +3,11 @@ const http = require('http');
 const { spawn } = require('child_process');
 
 const PORT = process.env.PORT || 8091;
-const TO = 'info@tissuecarebiotech.com';
+// info@tissuecarebiotech.com sunucudaki yerel bir Postfix alias'ı
+// (/etc/postfix/virtual) üzerinden farklı bir yerel kutuya düşüyor,
+// gerçekte okunan Gmail hesabına ulaşmıyor. O yüzden gerçekten
+// okunan adrese gönderiyoruz; From başlığı yine info@ görünür.
+const TO = 'tissuecarebiotech@gmail.com';
 const FROM = 'info@tissuecarebiotech.com';
 const SENDMAIL = '/usr/sbin/sendmail';
 
