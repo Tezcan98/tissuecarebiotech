@@ -715,9 +715,18 @@ footer .brand span{color:#fff}
       <div class="row">
         <div><label for="mail" data-i18n="form.email.label">E-posta</label><input id="mail" type="email" placeholder="ornek@kurum.edu.tr" data-i18n-ph="form.email.placeholder" required></div>
         <div><label for="konu" data-i18n="form.konu.label">Konu</label><select id="konu">
-          <option data-i18n="form.konu.opt1">Analiz hizmeti (PCR, Western Blot)</option><option data-i18n="form.konu.opt2">Hücre hattı oluşturma</option>
-          <option data-i18n="form.konu.opt3">Eksozom eldesi</option><option data-i18n="form.konu.opt4">Eğitim talebi</option>
-          <option data-i18n="form.konu.opt5">KOSGEB / TÜBİTAK proje desteği</option><option data-i18n="form.konu.opt6">Diğer</option></select></div>
+          <option data-i18n="form.konu.opt1">Doku – Kök Hücre Uygulama Eğitimi (Modül A)</option>
+          <option data-i18n="form.konu.opt2">Biyoteknoloji Proje Yönetimi Eğitimi (Modül B-1)</option>
+          <option data-i18n="form.konu.opt3">KOSGEB / TÜBİTAK Proje Başvuru Eğitimi</option>
+          <option data-i18n="form.konu.opt4">Hücre Hatlarının Oluşturulması</option>
+          <option data-i18n="form.konu.opt5">Eksozom Eldesi (Karakterize EV)</option>
+          <option data-i18n="form.konu.opt6">Gen / CRISPR Düzenleme Hizmetleri</option>
+          <option data-i18n="form.konu.opt7">MTT Analizi</option>
+          <option data-i18n="form.konu.opt8">Real Time PCR Analizi</option>
+          <option data-i18n="form.konu.opt9">SDS-PAGE / Western Blotting Analizi</option>
+          <option data-i18n="form.konu.opt10">Antimikrobiyal Test Hizmetleri</option>
+          <option data-i18n="form.konu.opt11">Diğer</option>
+        </select></div>
       </div>
       <div><label for="mesaj" data-i18n="form.mesaj.label">Mesaj</label><textarea id="mesaj" rows="4" placeholder="Çalışmanızı ve ihtiyacınızı kısaca yazın" data-i18n-ph="form.mesaj.placeholder"></textarea></div>
       <label class="consent"><input type="checkbox" required> <span data-i18n="form.consent">KVKK aydınlatma metnini okudum, verilerimin işlenmesini onaylıyorum.</span></label>
@@ -976,8 +985,11 @@ const i18n={
     'form.kurum.label':'Kurum','form.kurum.placeholder':'Üniversite / şirket',
     'form.email.label':'E-posta','form.email.placeholder':'ornek@kurum.edu.tr',
     'form.konu.label':'Konu',
-    'form.konu.opt1':'Analiz hizmeti (PCR, Western Blot)','form.konu.opt2':'Hücre hattı oluşturma','form.konu.opt3':'Eksozom eldesi',
-    'form.konu.opt4':'Eğitim talebi','form.konu.opt5':'KOSGEB / TÜBİTAK proje desteği','form.konu.opt6':'Diğer',
+    'form.konu.opt1':'Doku – Kök Hücre Uygulama Eğitimi (Modül A)','form.konu.opt2':'Biyoteknoloji Proje Yönetimi Eğitimi (Modül B-1)',
+    'form.konu.opt3':'KOSGEB / TÜBİTAK Proje Başvuru Eğitimi','form.konu.opt4':'Hücre Hatlarının Oluşturulması',
+    'form.konu.opt5':'Eksozom Eldesi (Karakterize EV)','form.konu.opt6':'Gen / CRISPR Düzenleme Hizmetleri',
+    'form.konu.opt7':'MTT Analizi','form.konu.opt8':'Real Time PCR Analizi','form.konu.opt9':'SDS-PAGE / Western Blotting Analizi',
+    'form.konu.opt10':'Antimikrobiyal Test Hizmetleri','form.konu.opt11':'Diğer',
     'form.mesaj.label':'Mesaj','form.mesaj.placeholder':'Çalışmanızı ve ihtiyacınızı kısaca yazın',
     'form.consent':'KVKK aydınlatma metnini okudum, verilerimin işlenmesini onaylıyorum.',
     'form.submit':'Mesajı gönder',
@@ -1186,8 +1198,11 @@ const i18n={
     'form.kurum.label':'Institution','form.kurum.placeholder':'University / company',
     'form.email.label':'Email','form.email.placeholder':'you@company.com',
     'form.konu.label':'Subject',
-    'form.konu.opt1':'Analysis service (PCR, Western Blot)','form.konu.opt2':'Cell line establishment','form.konu.opt3':'Exosome production',
-    'form.konu.opt4':'Training request','form.konu.opt5':'KOSGEB / TÜBİTAK grant support','form.konu.opt6':'Other',
+    'form.konu.opt1':'Tissue–Stem Cell Application Training (Module A)','form.konu.opt2':'Biotechnology Project Management Training (Module B-1)',
+    'form.konu.opt3':'KOSGEB / TÜBİTAK Grant Application Preparation Training','form.konu.opt4':'Establishment of Cell Lines',
+    'form.konu.opt5':'Production of Characterized Exosomes','form.konu.opt6':'Gene / CRISPR Editing Services',
+    'form.konu.opt7':'MTT Assay','form.konu.opt8':'Real-Time PCR Analysis','form.konu.opt9':'SDS-PAGE / Western Blotting Analysis',
+    'form.konu.opt10':'Antimicrobial Testing Services','form.konu.opt11':'Other',
     'form.mesaj.label':'Message','form.mesaj.placeholder':'Briefly describe your work and your needs',
     'form.consent':'I have read the Privacy Notice and consent to the processing of my data.',
     'form.submit':'Send Message',
@@ -1396,8 +1411,11 @@ const i18n={
     'form.kurum.label':'所属機関','form.kurum.placeholder':'大学・企業名',
     'form.email.label':'メールアドレス','form.email.placeholder':'you@company.com',
     'form.konu.label':'件名',
-    'form.konu.opt1':'分析サービス(PCR、ウエスタンブロット)','form.konu.opt2':'細胞株樹立','form.konu.opt3':'エクソソーム作製',
-    'form.konu.opt4':'トレーニングのご依頼','form.konu.opt5':'KOSGEB/TÜBİTAK 助成金サポート','form.konu.opt6':'その他',
+    'form.konu.opt1':'組織・幹細胞応用トレーニング(モジュールA)','form.konu.opt2':'バイオテクノロジー・プロジェクトマネジメント研修(モジュールB-1)',
+    'form.konu.opt3':'KOSGEB/TÜBİTAK 助成金申請準備トレーニング','form.konu.opt4':'細胞株の樹立',
+    'form.konu.opt5':'特性評価済みエクソソームの作製','form.konu.opt6':'遺伝子・CRISPR編集サービス',
+    'form.konu.opt7':'MTTアッセイ','form.konu.opt8':'リアルタイムPCR分析','form.konu.opt9':'SDS-PAGE・ウエスタンブロッティング分析',
+    'form.konu.opt10':'抗菌性試験サービス','form.konu.opt11':'その他',
     'form.mesaj.label':'メッセージ','form.mesaj.placeholder':'ご研究内容とご要望を簡潔にご記入ください',
     'form.consent':'プライバシー通知を確認し、個人情報の取り扱いに同意します。',
     'form.submit':'送信する',
