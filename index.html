@@ -199,6 +199,7 @@ section{padding:88px 0}
 .svc-body li>b{color:var(--ink)}
 .svc-body .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 .svc-body .ph{border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.svc-body .ph.sm{max-width:420px}
 .svc-body .ph img{width:100%;display:block}
 .svc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;padding:18px 20px;background:var(--paper);border-radius:12px}
 .svc-meta div dt{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
@@ -211,9 +212,6 @@ section{padding:88px 0}
 .svc-note a{text-decoration:underline}
 
 /* markalar / alt yapı */
-.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
-.slot{border:1px dashed var(--line);border-radius:12px;background:#fff;height:96px;display:grid;place-items:center;
-  font-family:"IBM Plex Mono";font-size:12px;color:#9fb2be;text-align:center;padding:10px}
 .brand-card{display:flex;align-items:center;gap:28px;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px;margin-bottom:20px;background:#fff}
 .brand-card img{height:34px;width:auto;flex:none}
 .brand-card p{color:var(--slate);font-size:15px}
@@ -260,7 +258,6 @@ footer .brand span{color:#fff}
   .principles{grid-template-columns:1fr 1fr}
   .principle{border-right:0;border-bottom:1px solid var(--line)}
   .band .wrap{grid-template-columns:1fr;gap:12px}
-  .slots{grid-template-columns:1fr 1fr}
   .svc-body{padding-left:0}
   .svc-body .cols{grid-template-columns:1fr}
 }
@@ -462,7 +459,7 @@ footer .brand span{color:#fff}
         <summary><span class="n">H-01</span><h3><span data-i18n="egtA.h3">Doku – Kök Hücre Uygulama Eğitimi</span> <span class="suf" data-i18n="egtA.suf">(Modül A)</span></h3><span class="chev" aria-hidden="true">+</span></summary>
         <div class="svc-body" data-i18n-html="egtA.body">
           <p>Sanayi ve akademik alanda çalışan veya çalışmak isteyen uzman ve uzman adaylarına memeli hücre kültürü tekniklerini teorik anlatım ve bire bir uygulama fırsatıyla kazandırmayı amaçlayan bir eğitim programıdır.</p>
-          <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="Doku-Kök Hücre Uygulama Eğitimi'nden bir kare" loading="lazy" width="1400" height="764"></div>
+          <div class="ph sm"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="Doku-Kök Hücre Uygulama Eğitimi'nden bir kare" loading="lazy" width="1024" height="559"></div>
           <div><h4>Hedef</h4><p>Aseptik teknik şartlarında memeli hücrelerinin bulundukları dokulardan elde edilmesi; izole memeli hücrelerinin veya hücre hatlarının kültüre edilerek büyütülmesi ve devamlılıklarının sağlanması; kriyoprezervasyon ve kriyoprezerve edilen hücrelerin geri kazanılması süreçleri üzerine bilgi ve deneyim kazandırmaktır.</p></div>
           <div class="cols">
             <div><h4>Program — Kavramsal Eğitim</h4>
@@ -561,8 +558,8 @@ footer .brand span{color:#fff}
             </ul>
           </div>
           <div class="cols">
-            <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Eksozom izolasyon yöntemleri infografiği" loading="lazy" width="1600" height="1462"></div>
-            <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Eksozom karakterizasyonu infografiği" loading="lazy" width="1600" height="873"></div>
+            <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Eksozom izolasyon yöntemleri infografiği" loading="lazy" width="1312" height="1199"></div>
+            <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Eksozom karakterizasyonu infografiği" loading="lazy" width="1407" height="768"></div>
           </div>
           <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
         </div>
@@ -572,7 +569,7 @@ footer .brand span{color:#fff}
         <summary><span class="n">H-06</span><h3><span data-i18n="gen.h3">Memeli ve Prokaryotik Hücrelerde Gen ve Transkripsiyon Düzenleme İşlemleri</span></h3><span class="chev" aria-hidden="true">+</span></summary>
         <div class="svc-body" data-i18n-html="gen.body">
           <ul><li>Gen aktarımı</li><li>CRISPR Cas13d aracılı kalıcı knockdown</li><li>CRISPR Cas9 ile gen knockout</li></ul>
-          <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gen aktarma ve CRISPR teknolojileri infografiği" loading="lazy" width="1600" height="1462"></div>
+          <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gen aktarma ve CRISPR teknolojileri infografiği" loading="lazy" width="1312" height="1199"></div>
           <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
         </div>
       </details>
@@ -647,7 +644,7 @@ footer .brand span{color:#fff}
               <p>Antimikrobiyal duyarlılık testleri, CLSI M02 ve M100 kılavuzlarında belirtilen kriterlere uygun olarak disk difüzyon yöntemiyle de sunulmaktadır.</p>
             </div>
           </div>
-          <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimikrobiyal analiz hizmetleri infografiği" loading="lazy" width="1600" height="1462"></div>
+          <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimikrobiyal analiz hizmetleri infografiği" loading="lazy" width="1312" height="1199"></div>
           <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
         </div>
       </details>
@@ -667,10 +664,6 @@ footer .brand span{color:#fff}
     <div class="brand-card rv">
       <img src="assets/images/as-one-logo.png" alt="AS ONE Corporation logosu" loading="lazy" width="232" height="58">
       <p data-i18n="markalar.asone">AS ONE Corporation, 1962 yılında kurulan, merkezi Osaka, Japonya'da bulunan kapsamlı bir ticaret ve tedarik şirketidir. Özellikle bilimsel araştırma, endüstriyel tesisler ve sağlık/bakım sektörleri için laboratuvar ekipmanları, sarf malzemeleri ve araç-gereç tedariki konusunda uzmanlaşmıştır. Firmamız, sizlere As One laboratuvar cihaz ve sarf malzemelerini sağlamaktadır.</p>
-    </div>
-    <div class="slots rv">
-      <div class="slot" data-i18n="markalar.slot2">Marka logosu 2</div>
-      <div class="slot" data-i18n="markalar.slot3">Marka logosu 3</div><div class="slot" data-i18n="markalar.slot4">Marka logosu 4</div>
     </div>
   </div>
 </section>
@@ -828,7 +821,7 @@ const i18n={
     'svc.suffix':'(deneysel kullanım amaçlı)','svc.desc':'Açıklama eklenecek.','svc.cta1':'Bilgi alın','svc.cta2':'Numune gönderin',
     'egtA.h3':'Doku – Kök Hücre Uygulama Eğitimi','egtA.suf':'(Modül A)',
     'egtA.body':`<p>Sanayi ve akademik alanda çalışan veya çalışmak isteyen uzman ve uzman adaylarına memeli hücre kültürü tekniklerini teorik anlatım ve bire bir uygulama fırsatıyla kazandırmayı amaçlayan bir eğitim programıdır.</p>
-      <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="Doku-Kök Hücre Uygulama Eğitimi'nden bir kare" loading="lazy" width="1400" height="764"></div>
+      <div class="ph sm"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="Doku-Kök Hücre Uygulama Eğitimi'nden bir kare" loading="lazy" width="1024" height="559"></div>
       <div><h4>Hedef</h4><p>Aseptik teknik şartlarında memeli hücrelerinin bulundukları dokulardan elde edilmesi; izole memeli hücrelerinin veya hücre hatlarının kültüre edilerek büyütülmesi ve devamlılıklarının sağlanması; kriyoprezervasyon ve kriyoprezerve edilen hücrelerin geri kazanılması süreçleri üzerine bilgi ve deneyim kazandırmaktır.</p></div>
       <div class="cols">
         <div><h4>Program — Kavramsal Eğitim</h4>
@@ -907,13 +900,13 @@ const i18n={
         </ul>
       </div>
       <div class="cols">
-        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Eksozom izolasyon yöntemleri infografiği" loading="lazy" width="1600" height="1462"></div>
-        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Eksozom karakterizasyonu infografiği" loading="lazy" width="1600" height="873"></div>
+        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Eksozom izolasyon yöntemleri infografiği" loading="lazy" width="1312" height="1199"></div>
+        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Eksozom karakterizasyonu infografiği" loading="lazy" width="1407" height="768"></div>
       </div>
       <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
     'gen.h3':'Memeli ve Prokaryotik Hücrelerde Gen ve Transkripsiyon Düzenleme İşlemleri',
     'gen.body':`<ul><li>Gen aktarımı</li><li>CRISPR Cas13d aracılı kalıcı knockdown</li><li>CRISPR Cas9 ile gen knockout</li></ul>
-      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gen aktarma ve CRISPR teknolojileri infografiği" loading="lazy" width="1600" height="1462"></div>
+      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gen aktarma ve CRISPR teknolojileri infografiği" loading="lazy" width="1312" height="1199"></div>
       <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
     'mtt.h3':'MTT Analizi',
     'mtt.body':`<ul>
@@ -966,12 +959,11 @@ const i18n={
           <p>Antimikrobiyal duyarlılık testleri, CLSI M02 ve M100 kılavuzlarında belirtilen kriterlere uygun olarak disk difüzyon yöntemiyle de sunulmaktadır.</p>
         </div>
       </div>
-      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimikrobiyal analiz hizmetleri infografiği" loading="lazy" width="1600" height="1462"></div>
+      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimikrobiyal analiz hizmetleri infografiği" loading="lazy" width="1312" height="1199"></div>
       <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
     'markalar.eyebrow':'Yetkili Temsilcisi Olduğumuz Markalar','markalar.h2':'Temsil ettiğimiz markalar',
     'markalar.p':'Diğer marka logoları ve ürün grupları eklendikçe bu alan güncellenecek.',
     'markalar.asone':`AS ONE Corporation, 1962 yılında kurulan, merkezi Osaka, Japonya'da bulunan kapsamlı bir ticaret ve tedarik şirketidir. Özellikle bilimsel araştırma, endüstriyel tesisler ve sağlık/bakım sektörleri için laboratuvar ekipmanları, sarf malzemeleri ve araç-gereç tedariki konusunda uzmanlaşmıştır. Firmamız, sizlere As One laboratuvar cihaz ve sarf malzemelerini sağlamaktadır.`,
-    'markalar.slot1':'Marka logosu 1','markalar.slot2':'Marka logosu 2','markalar.slot3':'Marka logosu 3','markalar.slot4':'Marka logosu 4',
     'altyapi.eyebrow':'Alt Yapımız','altyapi.h2':'Doku ve Hücre Laboratuvarımız',
     'altyapi.note':'Ekipman listesi paylaştığınız envanterle eklenecek.',
     'iletisim.eyebrow':'İletişim','iletisim.h2':'Projenizi konuşalım',
@@ -1041,7 +1033,7 @@ const i18n={
     'svc.suffix':'(for experimental use)','svc.desc':'Description to be added.','svc.cta1':'Get Info','svc.cta2':'Send a Sample',
     'egtA.h3':'Tissue–Stem Cell Application Training','egtA.suf':'(Module A)',
     'egtA.body':`<p>A training program for professionals and prospective professionals in industry and academia, designed to build mammalian cell culture skills through theoretical instruction and one-on-one hands-on practice.</p>
-      <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="A moment from the Tissue–Stem Cell Application Training" loading="lazy" width="1400" height="764"></div>
+      <div class="ph sm"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="A moment from the Tissue–Stem Cell Application Training" loading="lazy" width="1024" height="559"></div>
       <div><h4>Objective</h4><p>To provide knowledge and hands-on experience in obtaining mammalian cells from their tissues of origin under aseptic conditions; culturing and expanding isolated mammalian cells or cell lines while maintaining their continuity; and the processes of cryopreservation and recovering cryopreserved cells.</p></div>
       <div class="cols">
         <div><h4>Program — Conceptual Training</h4>
@@ -1120,13 +1112,13 @@ const i18n={
         </ul>
       </div>
       <div class="cols">
-        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Exosome isolation methods infographic" loading="lazy" width="1600" height="1462"></div>
-        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Exosome characterization infographic" loading="lazy" width="1600" height="873"></div>
+        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Exosome isolation methods infographic" loading="lazy" width="1312" height="1199"></div>
+        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Exosome characterization infographic" loading="lazy" width="1407" height="768"></div>
       </div>
       <p class="svc-note">Please contact us for pricing and service terms.</p>`,
     'gen.h3':'Gene and Transcription Regulation in Mammalian and Prokaryotic Cells',
     'gen.body':`<ul><li>Gene transfer</li><li>CRISPR Cas13d–mediated permanent knockdown</li><li>Gene knockout with CRISPR Cas9</li></ul>
-      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gene transfer and CRISPR technologies infographic" loading="lazy" width="1600" height="1462"></div>
+      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gene transfer and CRISPR technologies infographic" loading="lazy" width="1312" height="1199"></div>
       <p class="svc-note">Please contact us for pricing and service terms.</p>`,
     'mtt.h3':'MTT Assay',
     'mtt.body':`<ul>
@@ -1179,12 +1171,11 @@ const i18n={
           <p>Antimicrobial susceptibility testing is also offered via the disk diffusion method, in accordance with the criteria specified in the CLSI M02 and M100 guidelines.</p>
         </div>
       </div>
-      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimicrobial testing services infographic" loading="lazy" width="1600" height="1462"></div>
+      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimicrobial testing services infographic" loading="lazy" width="1312" height="1199"></div>
       <p class="svc-note">Please contact us for pricing and service terms.</p>`,
     'markalar.eyebrow':'Brands We Represent','markalar.h2':'Brands we represent',
     'markalar.p':'This area will be updated as more brand logos and product groups are added.',
     'markalar.asone':`AS ONE Corporation, founded in 1962 and headquartered in Osaka, Japan, is a comprehensive trading and supply company. It specializes in supplying laboratory equipment, consumables and instruments for scientific research, industrial facilities, and the healthcare sector. Our company supplies you with AS ONE laboratory equipment and consumables.`,
-    'markalar.slot1':'Brand logo 1','markalar.slot2':'Brand logo 2','markalar.slot3':'Brand logo 3','markalar.slot4':'Brand logo 4',
     'altyapi.eyebrow':'Our Infrastructure','altyapi.h2':'Our Tissue and Cell Laboratory',
     'altyapi.note':'The equipment list will be added once you share your inventory.',
     'iletisim.eyebrow':'Contact','iletisim.h2':"Let's talk about your project",
@@ -1254,7 +1245,7 @@ const i18n={
     'svc.suffix':'(実験用)','svc.desc':'説明は追って追加されます。','svc.cta1':'詳細を見る','svc.cta2':'サンプルを送る',
     'egtA.h3':'組織・幹細胞応用トレーニング','egtA.suf':'(モジュールA)',
     'egtA.body':`<p>産業界・学術界で活躍する、またはこれから活躍したい専門家・専門家候補を対象に、哺乳類細胞培養技術を座学と個別実習の両方で習得できるトレーニングプログラムです。</p>
-      <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="組織・幹細胞応用トレーニングの様子" loading="lazy" width="1400" height="764"></div>
+      <div class="ph sm"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="組織・幹細胞応用トレーニングの様子" loading="lazy" width="1024" height="559"></div>
       <div><h4>目標</h4><p>無菌操作条件下で組織から哺乳類細胞を採取すること、単離した哺乳類細胞や細胞株を培養・増殖させて継続的に維持すること、そして凍結保存および凍結保存細胞の回収プロセスについて、知識と実務経験を身につけることを目的としています。</p></div>
       <div class="cols">
         <div><h4>プログラム — 座学</h4>
@@ -1333,13 +1324,13 @@ const i18n={
         </ul>
       </div>
       <div class="cols">
-        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="エクソソーム単離方法のインフォグラフィック" loading="lazy" width="1600" height="1462"></div>
-        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="エクソソームキャラクタリゼーションのインフォグラフィック" loading="lazy" width="1600" height="873"></div>
+        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="エクソソーム単離方法のインフォグラフィック" loading="lazy" width="1312" height="1199"></div>
+        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="エクソソームキャラクタリゼーションのインフォグラフィック" loading="lazy" width="1407" height="768"></div>
       </div>
       <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
     'gen.h3':'哺乳類・原核細胞における遺伝子・転写制御処理',
     'gen.body':`<ul><li>遺伝子導入</li><li>CRISPR Cas13dによる恒久的ノックダウン</li><li>CRISPR Cas9による遺伝子ノックアウト</li></ul>
-      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="遺伝子導入・CRISPR技術のインフォグラフィック" loading="lazy" width="1600" height="1462"></div>
+      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="遺伝子導入・CRISPR技術のインフォグラフィック" loading="lazy" width="1312" height="1199"></div>
       <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
     'mtt.h3':'MTTアッセイ',
     'mtt.body':`<ul>
@@ -1392,12 +1383,11 @@ const i18n={
           <p>CLSI M02およびM100ガイドラインに定められた基準に従い、ディスク拡散法による薬剤感受性試験も提供しています。</p>
         </div>
       </div>
-      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="抗菌性試験サービスのインフォグラフィック" loading="lazy" width="1600" height="1462"></div>
+      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="抗菌性試験サービスのインフォグラフィック" loading="lazy" width="1312" height="1199"></div>
       <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
     'markalar.eyebrow':'正規代理店ブランド','markalar.h2':'取扱ブランド',
     'markalar.p':'他のブランドロゴや製品カテゴリーが追加され次第、このエリアも更新されます。',
     'markalar.asone':`AS ONE Corporationは、1962年創業、大阪府に本社を置く総合商社・サプライヤーです。特に科学研究、産業施設、ヘルスケア分野向けのラボ機器・消耗品・器具の供給を専門としています。当社は、AS ONE社のラボ機器・消耗品をお客様にご提供しています。`,
-    'markalar.slot1':'ブランドロゴ1','markalar.slot2':'ブランドロゴ2','markalar.slot3':'ブランドロゴ3','markalar.slot4':'ブランドロゴ4',
     'altyapi.eyebrow':'設備・インフラ','altyapi.h2':'組織・細胞ラボ',
     'altyapi.note':'機器リストは、ご提供いただく在庫情報をもとに追加されます。',
     'iletisim.eyebrow':'お問い合わせ','iletisim.h2':'プロジェクトについてご相談ください',
