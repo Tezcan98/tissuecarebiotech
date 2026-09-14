@@ -182,12 +182,44 @@ section{padding:88px 0}
 .svc .cta{text-align:right;font-family:"Sora";font-weight:600;font-size:14px;color:var(--navy);white-space:nowrap}
 .svc .cta::after{content:" →"}
 
+/* hizmetler — genişletilebilir hizmet detayları */
+.svc-detail{border-bottom:1px solid var(--line)}
+.svc-detail summary{display:flex;gap:20px;align-items:center;padding:26px 0;cursor:pointer;list-style:none}
+.svc-detail summary::-webkit-details-marker{display:none}
+.svc-detail summary .n{font-family:"IBM Plex Mono";font-size:13px;color:var(--green);letter-spacing:.08em;flex:none;width:48px}
+.svc-detail summary h3{font-size:19px;color:var(--navy);flex:1;font-weight:600}
+.svc-detail summary h3 .suf{font-weight:400;font-size:15px;color:var(--slate);font-family:"IBM Plex Sans"}
+.svc-detail summary .chev{flex:none;width:26px;height:26px;border-radius:100%;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--navy);font-size:16px;transition:.25s}
+.svc-detail[open] summary .chev{transform:rotate(45deg);border-color:var(--green);color:var(--green)}
+.svc-body{padding:0 0 36px 68px;display:grid;gap:20px}
+.svc-body h4{font-family:"IBM Plex Mono";font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.svc-body p{color:var(--slate);font-size:15.5px}
+.svc-body ul{margin:0;padding-left:20px;color:var(--slate);font-size:15px;display:grid;gap:7px}
+.svc-body li>b{color:var(--ink)}
+.svc-body .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.svc-body .ph{border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.svc-body .ph img{width:100%;display:block}
+.svc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;padding:18px 20px;background:var(--paper);border-radius:12px}
+.svc-meta div dt{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.svc-meta div dd{margin:5px 0 0;color:var(--ink);font-size:14.5px}
+.svc-table-wrap{overflow-x:auto}
+.svc-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:440px}
+.svc-table th,.svc-table td{border:1px solid var(--line);padding:10px 14px;text-align:left}
+.svc-table th{background:var(--paper);color:var(--navy);font-family:"Sora";font-weight:600;font-size:13px}
+.svc-note{font-size:14px;color:var(--navy-soft)}
+.svc-note a{text-decoration:underline}
+
 /* markalar / alt yapı */
-.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
 .slot{border:1px dashed var(--line);border-radius:12px;background:#fff;height:96px;display:grid;place-items:center;
   font-family:"IBM Plex Mono";font-size:12px;color:#9fb2be;text-align:center;padding:10px}
+.brand-card{display:flex;align-items:center;gap:28px;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px;margin-bottom:20px;background:#fff}
+.brand-card img{height:34px;width:auto;flex:none}
+.brand-card p{color:var(--slate);font-size:15px}
 .lab{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
 .lab img{border-radius:var(--r);border:1px solid rgba(255,255,255,.16)}
+.lab-gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .lab ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
 .lab li{padding-left:24px;position:relative;color:#c5dced;font-size:15.5px}
 .lab li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;background:var(--lime);border-radius:2px}
@@ -230,12 +262,18 @@ footer .brand span{color:#fff}
   .principle{border-right:0;border-bottom:1px solid var(--line)}
   .band .wrap{grid-template-columns:1fr;gap:12px}
   .slots{grid-template-columns:1fr 1fr}
+  .svc-body{padding-left:0}
+  .svc-body .cols{grid-template-columns:1fr}
 }
 @media (max-width:620px){
   section{padding:62px 0}
   .g2,.g3,.row,.f-grid,.methods,.principles{grid-template-columns:1fr}
   .stance div,.svc article{grid-template-columns:1fr;gap:8px}
   .svc .cta{text-align:left}
+  .svc-detail summary{gap:12px}
+  .svc-detail summary h3{font-size:16.5px}
+  .brand-card{flex-direction:column;align-items:flex-start;gap:16px}
+  .lab-gallery{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
@@ -321,7 +359,7 @@ footer .brand span{color:#fff}
       <p style="margin-top:16px;color:var(--slate);font-size:17px" data-i18n="kimiz.p2">Akademik çalışmalardan kamu ve özel sektör projelerine kadar geniş bir yelpazede, insan ve hayvan sağlığı ve refahı üzerine ürün veya yöntem geliştirme deneyimimizi, hizmet ve alt yapımızı bilim dünyasıyla paylaşıyoruz.</p>
     </div>
     <div class="mv rv">
-      <div class="card"><span class="code" data-i18n="kimiz.ekip.label">Ekibimiz</span><p data-i18n="kimiz.ekip.text">Şirketimiz; biyokimya, moleküler biyoloji, genetik, biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uzmanlaşmış genç ve dinamik bir araştırma ekibinden oluşmaktadır.</p></div>
+      <div class="card"><span class="code" data-i18n="kimiz.ekip.label">Ekibimiz</span><p data-i18n="kimiz.ekip.text">Şirketimiz; biyokimya, moleküler biyoloji, genetik, biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uzmanlaşmış genç ve dinamik bir araştırma ekibinden oluşmaktadır. Ekibimiz, insan ve hayvan sağlığı alanlarında araştırma ve ürün geliştirme çalışmaları yürüten üniversite ve sanayii araştırmacılarıyla hızlı ve güvenilir çözümler üretmede beraber ve tamamlayıcı olarak çalışmaktadır.</p></div>
       <div class="card"><span class="code" data-i18n="kimiz.misyon.label">Misyon</span><p data-i18n="kimiz.misyon.text">Tissuecare Biyoteknoloji A.Ş., moleküler biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uçtan uca deneysel araştırma ve geliştirme faaliyetleri tasarlama, planlama, yürütme, denetleme ve raporlama faaliyeti yürütmek böylece, ikame ve/veya yenilikçi teşhis ve tedavi ürünlerini ülkemize kazandırmak amacıyla 2021 yılında kurulmuştur. Şirketimiz; üniversitelere, diğer kamu ve özel kuruluşlara insan ve hayvan sağlığı ve refahı üzerine ürün veya yöntem geliştirme üzerine deneyimini, hizmet ve alt yapısını sunmaktadır.</p></div>
       <div class="card"><span class="code" data-i18n="kimiz.vizyon.label">Vizyon</span><p data-i18n="kimiz.vizyon.text">Tissuecare Biyoteknoloji A.Ş., ülkemizde bilim insanlarını doğru kaynaklarla buluşturarak; 10 yıl içerisinde insan ve hayvan sağlığını, refahını ve yaşam kalitesini geliştiren yöntemlere ve ürünlere aracılık ve kaynaklık etmektir.</p></div>
     </div>
@@ -418,15 +456,204 @@ footer .brand span{color:#fff}
     <div class="sec-head rv">
       <p class="eyebrow" data-i18n="hizmetler.eyebrow">Hizmetlerimiz / Satışlarımız</p>
       <h2 data-i18n="hizmetler.h2">Eğitim, üretim ve analiz hizmetleri</h2>
-      <p data-i18n="hizmetler.p">Her başlığın altındaki kısa açıklama sizden gelecek metinle doldurulacak.</p>
+      <p data-i18n="hizmetler.p">Detaylı bilgi için bir başlığa tıklayarak içeriği genişletebilirsiniz.</p>
     </div>
-    <div class="svc rv">
-      <article><span class="n">H-01</span><div><h3 data-i18n="svc1.h3">Doku – Kök Hücre Uygulama Eğitimi</h3><p data-i18n="svc.desc">Açıklama eklenecek.</p></div><a class="cta" href="#iletisim" data-i18n="svc.cta1">Bilgi alın</a></article>
-      <article><span class="n">H-02</span><div><h3 data-i18n="svc2.h3">KOSGEB / TÜBİTAK Proje Başvurularının Hazırlanması Eğitimi</h3><p data-i18n="svc.desc">Açıklama eklenecek.</p></div><a class="cta" href="#iletisim" data-i18n="svc.cta1">Bilgi alın</a></article>
-      <article><span class="n">H-03</span><div><h3><span data-i18n="svc3.h3">Hücre Hatlarının Oluşturulması</span> <span style="font-weight:400;font-size:15px;color:var(--slate)" data-i18n="svc.suffix">(deneysel kullanım amaçlı)</span></h3><p data-i18n="svc.desc">Açıklama eklenecek.</p></div><a class="cta" href="#iletisim" data-i18n="svc.cta1">Bilgi alın</a></article>
-      <article><span class="n">H-04</span><div><h3><span data-i18n="svc4.h3">Karakterize Edilmiş Ekstraselüler Vesikül (Eksozom) Eldesi</span> <span style="font-weight:400;font-size:15px;color:var(--slate)" data-i18n="svc.suffix">(deneysel kullanım amaçlı)</span></h3><p data-i18n="svc.desc">Açıklama eklenecek.</p></div><a class="cta" href="#iletisim" data-i18n="svc.cta1">Bilgi alın</a></article>
-      <article><span class="n">H-05</span><div><h3 data-i18n="svc5.h3">Real Time PCR Analizi</h3><p data-i18n="svc.desc">Açıklama eklenecek.</p></div><a class="cta" href="#iletisim" data-i18n="svc.cta2">Numune gönderin</a></article>
-      <article><span class="n">H-06</span><div><h3 data-i18n="svc6.h3">SDS-PAGE ve Western Blotting Analizi</h3><p data-i18n="svc.desc">Açıklama eklenecek.</p></div><a class="cta" href="#iletisim" data-i18n="svc.cta2">Numune gönderin</a></article>
+    <div class="rv">
+
+      <details class="svc-detail">
+        <summary><span class="n">H-01</span><h3><span data-i18n="egtA.h3">Doku – Kök Hücre Uygulama Eğitimi</span> <span class="suf" data-i18n="egtA.suf">(Modül A)</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="egtA.body">
+          <p>Sanayi ve akademik alanda çalışan veya çalışmak isteyen uzman ve uzman adaylarına memeli hücre kültürü tekniklerini teorik anlatım ve bire bir uygulama fırsatıyla kazandırmayı amaçlayan bir eğitim programıdır.</p>
+          <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="Doku-Kök Hücre Uygulama Eğitimi'nden bir kare" loading="lazy" width="1400" height="764"></div>
+          <div><h4>Hedef</h4><p>Aseptik teknik şartlarında memeli hücrelerinin bulundukları dokulardan elde edilmesi; izole memeli hücrelerinin veya hücre hatlarının kültüre edilerek büyütülmesi ve devamlılıklarının sağlanması; kriyoprezervasyon ve kriyoprezerve edilen hücrelerin geri kazanılması süreçleri üzerine bilgi ve deneyim kazandırmaktır.</p></div>
+          <div class="cols">
+            <div><h4>Program — Kavramsal Eğitim</h4>
+              <ul>
+                <li><b>Doku ve Hücre Kültürüne Giriş:</b> hücre kültürü nedir, sonlu ve daimi hücre kültürleri, hücre kültürü koşulları, kriyoprezervasyon, hücre morfolojisi, uygulama alanları</li>
+                <li><b>Laboratuvar Tanıtımı:</b> biyogüvenlik ve güvenli laboratuvar uygulaması, temel donanım ve ekipman, alan planlaması, aseptik teknik, kontaminasyon takibi ve yönetimi</li>
+                <li><b>Hücre Kültürü Temelleri:</b> primer hücre kültürünün eldesi, hücre hatları, fiziksel/kimyasal çevre, hücre morfolojisi</li>
+                <li><b>Hücre Kültür Teknikleri:</b> kültürlerin devamlılığının sağlanması, adherent ve suspansiyon kültürlerin alt kültürlenmesi (subculture), kriyoprezervasyon ve hücre bankacılığı, hücreleri kriyoprezerve halden kurtarma</li>
+                <li>Doku ve hücre kültüründe sıklıkla karşılaşılan sorunlar ve çözümleri</li>
+                <li>Eğitimin etkinliğini belirleme ve eksik konular üzerinden geçmek üzere sınav katılımı</li>
+              </ul>
+            </div>
+            <div><h4>Program — Uygulamalı Eğitim</h4>
+              <ul>
+                <li>Laboratuvar tanıtımı</li><li>Aseptik tekniklerin uygulanması</li><li>Besi ortamlarının hazırlanması</li>
+                <li>Hücre açma</li><li>Hücre kültürü alt kültürlemesi</li><li>Hücre sayısının ve canlılığının tespiti</li><li>Hücre dondurma</li>
+              </ul>
+            </div>
+          </div>
+          <div class="svc-meta">
+            <div><dt>Süre</dt><dd>Kavramsal eğitim 8 saat, uygulamalı eğitim 1 gün.</dd></div>
+            <div><dt>Katılım Şartları</dt><dd>Tıp, diş ve ağız sağlığı, veterinerlik, eczacılık, kimya, biyokimya, biyoloji, moleküler biyoloji ve genetik, biyomühendislik, biyomedikal veya ilişkili alanlarda lisans düzeyinde eğitim almış olmak. Kavramsal eğitime katılmayanlar uygulamalı eğitime dahil olamaz.</dd></div>
+            <div><dt>Belgeleme</dt><dd>Eğitim programı ve süreleri transkript olarak belgelenir; katılım sertifikası düzenlenir.</dd></div>
+          </div>
+          <p class="svc-note">Başvuru için <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> adresine veya <a href="#iletisim">iletişim formumuza</a> yazabilirsiniz; sizinle kuracağımız irtibata göre eğitimin başlangıç tarihi belirlenir.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-02</span><h3><span data-i18n="egtB.h3">Biyoteknoloji Çalışmalarına Yönelik Proje Yönetimi Eğitimi</span> <span class="suf" data-i18n="egtB.suf">(Modül B-1)</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="egtB.body">
+          <p>Proje yönetim tekniklerinin biyoteknoloji alanı projelerine nasıl uyarlanabileceği konusunda bilgi ve uygulama kazandıran bir eğitim programıdır.</p>
+          <div><h4>Hedef</h4><p>Katılımcılara proje yönetim yeterlilikleri kazandırarak karmaşık bilimsel projeleri planlama ve yürütme becerisi kazandırmaktır. Bu kapsamda proje kapsamının belirlenmesi ve proje şablonunun oluşturulması, projenin kritik adımlarının belirlenmesi, farklı organizasyonel yapı türlerinin proje yönetimini nasıl etkilediği ve zaman çizelgesi, görev tanımları, maliyet tahminleri, görev bağımlılıkları, personel ve kaynak tahsisini içeren örnek bir proje planının nasıl geliştirileceği tartışılır.</p></div>
+          <div><h4>Program</h4>
+            <ul>
+              <li><b>Biyoteknoloji ve İlaç Sektöründe Proje Yönetimine Giriş:</b> sektör yaşam döngüsüne genel bakış (Ar-Ge'den ticarileştirmeye), bilimsel proje yönetimindeki zorluklar (düzenleyici engeller, yüksek başarısızlık/kayıp oranları, belirsizlik), yaşam bilimlerinde proje yöneticisinin rolü ve sorumlulukları</li>
+              <li><b>Proje Başlatma ve Kapsam Belirleme:</b> proje kapsamının, hedeflerinin ve çıktılarının tanımlanması, proje şablonunun oluşturulması, bilimsel organizasyonlarda paydaş tespiti, analizi ve yönetimi</li>
+              <li><b>Biyoteknolojide Organizasyonel Yapılar:</b> fonksiyonel, matris ve projeye dayalı (projectized) yapılar; organizasyonel tasarımın iletişimi, yetkiyi ve kaynak tahsisini nasıl etkilediği; disiplinler arası ekiplerin yönetimi (bilim insanları, ruhsatlandırma/mevzuat işleri, QA/QC, ticari birimler)</li>
+              <li><b>Proje Planlama, İş Kırılım Yapısı (WBS) ve Zamanlama:</b> karmaşık projeler için WBS geliştirilmesi, görev bağımlılıkları/sıralama/tahmin teknikleri, kritik yolun (critical path) belirlenmesi</li>
+              <li><b>Kaynak Tahsisi, Bütçeleme ve Maliyet Tahmini:</b> proje maliyetlerinin tahmini, risk yönetimi ve acil durum planlaması</li>
+              <li><b>Yürütme ve İzleme:</b> ilerlemenin takibi ve proje değişikliklerinin yönetimi, başarılı ve başarısız biyoteknoloji/ilaç projeleri üzerine vaka çalışmaları</li>
+            </ul>
+          </div>
+          <div class="svc-meta">
+            <div><dt>Süre</dt><dd>Kavramsal eğitimin toplam süresi 8 saattir.</dd></div>
+            <div><dt>Katılım Şartları</dt><dd>Tıp, diş ve ağız sağlığı, veterinerlik, eczacılık, kimya, biyokimya, biyoloji, moleküler biyoloji ve genetik, biyomühendislik, biyomedikal veya ilişkili alanlarda lisans düzeyinde eğitim almış olmak.</dd></div>
+            <div><dt>Belgeleme</dt><dd>Eğitim programı ve süresi eklenmiş katılım sertifikası düzenlenir.</dd></div>
+          </div>
+          <p class="svc-note">Başvuru için <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> adresine veya <a href="#iletisim">iletişim formumuza</a> yazabilirsiniz; sizinle kuracağımız irtibata göre eğitimin başlangıç tarihi belirlenir.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-03</span><h3><span data-i18n="svc2.h3">KOSGEB / TÜBİTAK Proje Başvurularının Hazırlanması Eğitimi</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body"><p data-i18n="svc.desc">Açıklama eklenecek.</p></div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-04</span><h3><span data-i18n="hucrehatti.h3">Hücre Hatlarının Oluşturulması</span> <span class="suf" data-i18n="svc.suffix">(deneysel kullanım amaçlı)</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="hucrehatti.body">
+          <p>İstenen hücre hattından deneysel kullanım amaçlı hücre kültürü oluşturma hizmeti sunuyoruz.</p>
+          <ul>
+            <li>In vitro / in vivo araştırma amaçlı adherent hücrelerin kültürlenmesi (istenilen hücre hattı sağlanabilir; kemik iliği, adipoz doku, umbilikal kord ve dental dokudan mezenkimal kök hücre izolasyonu yapılabilir — primer dokular istem sahibi tarafından karşılanmalıdır)</li>
+            <li>Hücre çoğaltma, geçiş (passage) ve dondurma işlemleri</li>
+            <li>Kısa ve uzun süreli hücre bankacılığı</li>
+            <li>Deneye özel hücre hazırlığı (belirli yoğunlukta plating, farklı yüzey kaplamaları vb.)</li>
+            <li>Sterilite ve morfolojik kontrol</li>
+            <li>Hücre sayımı ve canlılık analizi</li>
+          </ul>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-05</span><h3><span data-i18n="eksozom.h3">Karakterize Edilmiş Ekstraselüler Vesikül (Eksozom) Eldesi</span> <span class="suf" data-i18n="svc.suffix">(deneysel kullanım amaçlı)</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="eksozom.body">
+          <p>Mezenkimal kök hücre kaynaklı, in vitro ve in vivo çalışmalarda kullanıma hazır eksozom sağlanmaktadır.</p>
+          <div class="svc-table-wrap"><table class="svc-table">
+            <thead><tr><th>Ürün Kodu</th><th>Ürün</th><th>Miktar</th></tr></thead>
+            <tbody>
+              <tr><td>EXO-1</td><td>İnsan Mezenkimal Kök Hücre Kaynaklı Eksozom</td><td>50 µg'lık ürün</td></tr>
+              <tr><td>EXO-2</td><td>İnsan Mezenkimal Kök Hücre Kaynaklı Eksozom</td><td>100 µg'lık ürün</td></tr>
+              <tr><td>EXO-3</td><td>İnsan Mezenkimal Kök Hücre Kaynaklı Eksozom</td><td>250 µg'lık ürün</td></tr>
+              <tr><td>EXO-5</td><td>HEK293 Hücre Kaynaklı Eksozom</td><td>50 µg'lık ürün</td></tr>
+              <tr><td>EXO-6</td><td>HEK293 Hücre Kaynaklı Eksozom</td><td>100 µg'lık ürün</td></tr>
+              <tr><td>EXO-7</td><td>HEK293 Hücre Kaynaklı Eksozom</td><td>250 µg'lık ürün</td></tr>
+              <tr><td>EXO-8</td><td>Talep edilen hücre hattından eksozom izolasyonu</td><td>50 µg'lık ürün</td></tr>
+              <tr><td>EXO-9</td><td>Talep edilen hücre hattından eksozom izolasyonu</td><td>100 µg'lık ürün</td></tr>
+            </tbody>
+          </table></div>
+          <div><h4>Karakterizasyon</h4>
+            <ul>
+              <li>Tüm numunelerde BCA yöntemi ile protein miktarı ve eksozom biyobelirteçleri (CD9, CD63, CD81 ve TSG101) SDS-PAGE / Western Blotting yöntemiyle tespit edilir.</li>
+              <li>Partikül konsantrasyonu ve boyutu nanopartikül izleme analizi (NTA) ile tespit edilir.</li>
+              <li>Ürünlerde sterilite analizleri yapılır.</li>
+            </ul>
+          </div>
+          <div class="cols">
+            <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Eksozom izolasyon yöntemleri infografiği" loading="lazy" width="1600" height="1462"></div>
+            <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Eksozom karakterizasyonu infografiği" loading="lazy" width="1600" height="873"></div>
+          </div>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-06</span><h3><span data-i18n="gen.h3">Memeli ve Prokaryotik Hücrelerde Gen ve Transkripsiyon Düzenleme İşlemleri</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="gen.body">
+          <ul><li>Gen aktarımı</li><li>CRISPR Cas13d aracılı kalıcı knockdown</li><li>CRISPR Cas9 ile gen knockout</li></ul>
+          <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gen aktarma ve CRISPR teknolojileri infografiği" loading="lazy" width="1600" height="1462"></div>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-07</span><h3><span data-i18n="mtt.h3">MTT Analizi</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="mtt.body">
+          <ul>
+            <li>Adherent hücrelerde MTT canlılık analizi</li>
+            <li>Farklı ajanların (ilaç, kimyasal, ekstrakt vb.) hücre üzerine etkilerinin karşılaştırılması</li>
+            <li>Doz-cevap eğrileri ve IC50 hesaplamaları (talep doğrultusunda)</li>
+            <li>Spektrofotometrik ölçüm ve absorbans verilerinin raporlanması</li>
+            <li>Grafiksel sonuç sunumu ve kısa yorumlama (isteğe bağlı)</li>
+          </ul>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-08</span><h3><span data-i18n="svc5.h3">Real Time PCR Analizi</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="qpcr.body">
+          <ul>
+            <li>Kalitatif analizler (internal pozitif kontrol kullanılarak var/yok analizleri)</li>
+            <li>Absolute ve relatif gen miktar tayini</li>
+            <li>Gen ekspresyonu analizi (ΔΔCT yöntemi)</li>
+            <li>miRNA gen ekspresyon analizi</li>
+          </ul>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-09</span><h3><span data-i18n="svc6.h3">SDS-PAGE ve Western Blotting Analizi</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="western.body">
+          <ul>
+            <li>İzole proteinlerde BCA yöntemiyle protein miktarı tayini</li>
+            <li>Proteinin moleküler ağırlığına uygun jel yüzdesinin seçilmesi</li>
+            <li>İndirgeyici (reducing) veya indirgeyici olmayan (non-reducing) koşullarda elektroforez</li>
+            <li>Coomassie boyama ile toplam protein profilinin görülmesi</li>
+            <li>Proteinlerin jelden membrana (PVDF veya nitroselüloz) transferi</li>
+            <li>Spesifik antikorlarla boyama</li>
+          </ul>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
+      <details class="svc-detail">
+        <summary><span class="n">H-10</span><h3><span data-i18n="antimik.h3">Antimikrobiyal Test Hizmetleri</span></h3><span class="chev" aria-hidden="true">+</span></summary>
+        <div class="svc-body" data-i18n-html="antimik.body">
+          <p>Antimikrobiyal ürün testleriniz, ürün grubuna göre belirtilen standartlara uygun olarak gerçekleştirilir.</p>
+          <div class="cols">
+            <div><h4>Saf Bileşikler ve Solüsyonlar İçin (MIC Tayini)</h4>
+              <ul>
+                <li><b>ISO 16256:</b> enfeksiyöz hastalıklarda rol oynayan maya mantarlarına (Candida türleri gibi) karşı antimikrobiyal ajanların in vitro aktivitesinin test edilmesi; minimum inhibitör konsantrasyonu (MIC) sıvı mikrodilüsyon (broth microdilution) yöntemiyle belirlenir.</li>
+                <li><b>ISO 20776-1:</b> hızla üreyen aerobik bakterilere karşı antimikrobiyal ajanların in vitro aktivitesinin test edilmesi; sıvı ortamda standart MIC ve minimum bakterisidal konsantrasyon (MBC) tayini.</li>
+              </ul>
+            </div>
+            <div><h4>Yüzeyler, Polimerler ve Katı Materyaller İçin</h4>
+              <ul>
+                <li><b>ISO 22196:</b> plastikler ve diğer gözeneksiz yüzeylerdeki antibakteriyel aktivitenin ölçümü; inokülümün yüzeye damlatılıp inkübe edilmesi ve sağ kalan hücrelerin sayılması esasına dayanır.</li>
+                <li><b>ISO 20743:</b> tekstil ürünleri ve benzeri gözenekli yapıların antibakteriyel aktivitesinin tayini; yara örtüsü veya emici bant formatındaki taşıyıcılar için kullanılır.</li>
+              </ul>
+            </div>
+            <div><h4>Formülasyon ve Biyouyumluluk Değerlendirmeleri</h4>
+              <ul>
+                <li><b>ISO 11930:</b> topikal ürün ve formülasyonların antimikrobiyal koruma etkinliğinin (Challenge Test) değerlendirilmesi; cilde uygulanacak dermatolojik taşıyıcı sistemlerin mikrobiyal direnç ve stabilitesi için kullanılır.</li>
+                <li><b>ISO 10993 Serisi (özellikle 10993-5):</b> doğrudan bir antimikrobiyal test olmasa da, yeni nesil antimikrobiyal sistemlerin hücre kültürlerindeki in vitro sitotoksisitesini kanıtlamak için MIC/MBC testleriyle eş zamanlı yürütülmesi gereken temel materyal değerlendirme standardı.</li>
+                <li><b>ISO 16256:2021:</b> enfeksiyon hastalıklarına neden olan maya mantarlarının antifungal ilaçlara karşı direncini test etmek için kullanılan <a href="https://www.iso.org/standard/79379.html" target="_blank" rel="noopener">uluslararası standart</a>.</li>
+              </ul>
+            </div>
+            <div><h4>Disk Difüzyon Yöntemi</h4>
+              <p>Antimikrobiyal duyarlılık testleri, CLSI M02 ve M100 kılavuzlarında belirtilen kriterlere uygun olarak disk difüzyon yöntemiyle de sunulmaktadır.</p>
+            </div>
+          </div>
+          <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimikrobiyal analiz hizmetleri infografiği" loading="lazy" width="1600" height="1462"></div>
+          <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+      </details>
+
     </div>
   </div>
 </section>
@@ -437,10 +664,14 @@ footer .brand span{color:#fff}
     <div class="sec-head rv">
       <p class="eyebrow" data-i18n="markalar.eyebrow">Yetkili Temsilcisi Olduğumuz Markalar</p>
       <h2 data-i18n="markalar.h2">Temsil ettiğimiz markalar</h2>
-      <p data-i18n="markalar.p">Marka logoları ve ürün grupları eklendiğinde bu alan doldurulacak.</p>
+      <p data-i18n="markalar.p">Diğer marka logoları ve ürün grupları eklendikçe bu alan güncellenecek.</p>
+    </div>
+    <div class="brand-card rv">
+      <img src="assets/images/as-one-logo.png" alt="AS ONE Corporation logosu" loading="lazy" width="232" height="58">
+      <p data-i18n="markalar.asone">AS ONE Corporation, 1962 yılında kurulan, merkezi Osaka, Japonya'da bulunan kapsamlı bir ticaret ve tedarik şirketidir. Özellikle bilimsel araştırma, endüstriyel tesisler ve sağlık/bakım sektörleri için laboratuvar ekipmanları, sarf malzemeleri ve araç-gereç tedariki konusunda uzmanlaşmıştır. Firmamız, sizlere As One laboratuvar cihaz ve sarf malzemelerini sağlamaktadır.</p>
     </div>
     <div class="slots rv">
-      <div class="slot" data-i18n="markalar.slot1">Marka logosu 1</div><div class="slot" data-i18n="markalar.slot2">Marka logosu 2</div>
+      <div class="slot" data-i18n="markalar.slot2">Marka logosu 2</div>
       <div class="slot" data-i18n="markalar.slot3">Marka logosu 3</div><div class="slot" data-i18n="markalar.slot4">Marka logosu 4</div>
     </div>
   </div>
@@ -449,7 +680,10 @@ footer .brand span{color:#fff}
 <!-- ALT YAPI -->
 <section id="altyapi" class="dark on-dark">
   <div class="wrap lab">
-    <div class="rv"><img src="assets/images/alt-yapi.jpg" alt="Tissuecare hücre kültürü laboratuvarı"></div>
+    <div class="rv lab-gallery">
+      <img src="assets/images/alt-yapi.jpg" alt="Tissuecare hücre kültürü laboratuvarı">
+      <img src="assets/images/altyapi-lab-2.jpg" alt="Tissuecare laboratuvarında biyogüvenlik kabini ve ekipmanlar">
+    </div>
     <div class="rv">
       <p class="eyebrow" data-i18n="altyapi.eyebrow">Alt Yapımız</p>
       <h2 style="font-size:clamp(27px,3vw,37px);font-weight:600;color:#fff" data-i18n="altyapi.h2">Doku ve Hücre Laboratuvarımız</h2>
@@ -559,7 +793,7 @@ const i18n={
     'kimiz.eyebrow':'Biz Kimiz','kimiz.h2':'2021 yılından bu yana araştırma ve geliştirme faaliyetlerimizi sürdürüyoruz',
     'kimiz.p1':'Tissuecare Biyoteknoloji A.Ş. olarak moleküler biyoloji ve biyomühendislik projelerinizi sadece yürütmekle kalmıyor, baştan sona sizinle birlikte tasarlıyor ve hayata geçiriyoruz.',
     'kimiz.p2':'Akademik çalışmalardan kamu ve özel sektör projelerine kadar geniş bir yelpazede, insan ve hayvan sağlığı ve refahı üzerine ürün veya yöntem geliştirme deneyimimizi, hizmet ve alt yapımızı bilim dünyasıyla paylaşıyoruz.',
-    'kimiz.ekip.label':'Ekibimiz','kimiz.ekip.text':'Şirketimiz; biyokimya, moleküler biyoloji, genetik, biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uzmanlaşmış genç ve dinamik bir araştırma ekibinden oluşmaktadır.',
+    'kimiz.ekip.label':'Ekibimiz','kimiz.ekip.text':'Şirketimiz; biyokimya, moleküler biyoloji, genetik, biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uzmanlaşmış genç ve dinamik bir araştırma ekibinden oluşmaktadır. Ekibimiz, insan ve hayvan sağlığı alanlarında araştırma ve ürün geliştirme çalışmaları yürüten üniversite ve sanayii araştırmacılarıyla hızlı ve güvenilir çözümler üretmede beraber ve tamamlayıcı olarak çalışmaktadır.',
     'kimiz.misyon.label':'Misyon','kimiz.misyon.text':'Tissuecare Biyoteknoloji A.Ş., moleküler biyoteknoloji, biyomühendislik ve biyomedikal alanlarında uçtan uca deneysel araştırma ve geliştirme faaliyetleri tasarlama, planlama, yürütme, denetleme ve raporlama faaliyeti yürütmek böylece, ikame ve/veya yenilikçi teşhis ve tedavi ürünlerini ülkemize kazandırmak amacıyla 2021 yılında kurulmuştur. Şirketimiz; üniversitelere, diğer kamu ve özel kuruluşlara insan ve hayvan sağlığı ve refahı üzerine ürün veya yöntem geliştirme üzerine deneyimini, hizmet ve alt yapısını sunmaktadır.',
     'kimiz.vizyon.label':'Vizyon','kimiz.vizyon.text':'Tissuecare Biyoteknoloji A.Ş., ülkemizde bilim insanlarını doğru kaynaklarla buluşturarak; 10 yıl içerisinde insan ve hayvan sağlığını, refahını ve yaşam kalitesini geliştiren yöntemlere ve ürünlere aracılık ve kaynaklık etmektir.',
     'degerler.eyebrow':'Değerlerimiz','degerler.h2':'Bilimsel etik ve güvenirlik bizim için taviz verilmezdir',
@@ -583,13 +817,156 @@ const i18n={
     'methods.1':'Plazmid çoğaltma ve izolasyon','methods.2':'Transfeksiyon ve transdüksiyon','methods.3':'DNA / RNA izolasyon',
     'methods.4':'DNA / RNA miktar tayini','methods.5':'Real Time PCR','methods.6':'Protein miktar tayini','methods.7':'SDS-PAGE – Western Blotting yöntemleri',
     'hizmetler.eyebrow':'Hizmetlerimiz / Satışlarımız','hizmetler.h2':'Eğitim, üretim ve analiz hizmetleri',
-    'hizmetler.p':'Her başlığın altındaki kısa açıklama sizden gelecek metinle doldurulacak.',
+    'hizmetler.p':'Detaylı bilgi için bir başlığa tıklayarak içeriği genişletebilirsiniz.',
     'svc1.h3':'Doku – Kök Hücre Uygulama Eğitimi','svc2.h3':'KOSGEB / TÜBİTAK Proje Başvurularının Hazırlanması Eğitimi',
     'svc3.h3':'Hücre Hatlarının Oluşturulması','svc4.h3':'Karakterize Edilmiş Ekstraselüler Vesikül (Eksozom) Eldesi',
     'svc5.h3':'Real Time PCR Analizi','svc6.h3':'SDS-PAGE ve Western Blotting Analizi',
     'svc.suffix':'(deneysel kullanım amaçlı)','svc.desc':'Açıklama eklenecek.','svc.cta1':'Bilgi alın','svc.cta2':'Numune gönderin',
+    'egtA.h3':'Doku – Kök Hücre Uygulama Eğitimi','egtA.suf':'(Modül A)',
+    'egtA.body':`<p>Sanayi ve akademik alanda çalışan veya çalışmak isteyen uzman ve uzman adaylarına memeli hücre kültürü tekniklerini teorik anlatım ve bire bir uygulama fırsatıyla kazandırmayı amaçlayan bir eğitim programıdır.</p>
+      <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="Doku-Kök Hücre Uygulama Eğitimi'nden bir kare" loading="lazy" width="1400" height="764"></div>
+      <div><h4>Hedef</h4><p>Aseptik teknik şartlarında memeli hücrelerinin bulundukları dokulardan elde edilmesi; izole memeli hücrelerinin veya hücre hatlarının kültüre edilerek büyütülmesi ve devamlılıklarının sağlanması; kriyoprezervasyon ve kriyoprezerve edilen hücrelerin geri kazanılması süreçleri üzerine bilgi ve deneyim kazandırmaktır.</p></div>
+      <div class="cols">
+        <div><h4>Program — Kavramsal Eğitim</h4>
+          <ul>
+            <li><b>Doku ve Hücre Kültürüne Giriş:</b> hücre kültürü nedir, sonlu ve daimi hücre kültürleri, hücre kültürü koşulları, kriyoprezervasyon, hücre morfolojisi, uygulama alanları</li>
+            <li><b>Laboratuvar Tanıtımı:</b> biyogüvenlik ve güvenli laboratuvar uygulaması, temel donanım ve ekipman, alan planlaması, aseptik teknik, kontaminasyon takibi ve yönetimi</li>
+            <li><b>Hücre Kültürü Temelleri:</b> primer hücre kültürünün eldesi, hücre hatları, fiziksel/kimyasal çevre, hücre morfolojisi</li>
+            <li><b>Hücre Kültür Teknikleri:</b> kültürlerin devamlılığının sağlanması, adherent ve suspansiyon kültürlerin alt kültürlenmesi (subculture), kriyoprezervasyon ve hücre bankacılığı, hücreleri kriyoprezerve halden kurtarma</li>
+            <li>Doku ve hücre kültüründe sıklıkla karşılaşılan sorunlar ve çözümleri</li>
+            <li>Eğitimin etkinliğini belirleme ve eksik konular üzerinden geçmek üzere sınav katılımı</li>
+          </ul>
+        </div>
+        <div><h4>Program — Uygulamalı Eğitim</h4>
+          <ul>
+            <li>Laboratuvar tanıtımı</li><li>Aseptik tekniklerin uygulanması</li><li>Besi ortamlarının hazırlanması</li>
+            <li>Hücre açma</li><li>Hücre kültürü alt kültürlemesi</li><li>Hücre sayısının ve canlılığının tespiti</li><li>Hücre dondurma</li>
+          </ul>
+        </div>
+      </div>
+      <div class="svc-meta">
+        <div><dt>Süre</dt><dd>Kavramsal eğitim 8 saat, uygulamalı eğitim 1 gün.</dd></div>
+        <div><dt>Katılım Şartları</dt><dd>Tıp, diş ve ağız sağlığı, veterinerlik, eczacılık, kimya, biyokimya, biyoloji, moleküler biyoloji ve genetik, biyomühendislik, biyomedikal veya ilişkili alanlarda lisans düzeyinde eğitim almış olmak. Kavramsal eğitime katılmayanlar uygulamalı eğitime dahil olamaz.</dd></div>
+        <div><dt>Belgeleme</dt><dd>Eğitim programı ve süreleri transkript olarak belgelenir; katılım sertifikası düzenlenir.</dd></div>
+      </div>
+      <p class="svc-note">Başvuru için <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> adresine veya <a href="#iletisim">iletişim formumuza</a> yazabilirsiniz; sizinle kuracağımız irtibata göre eğitimin başlangıç tarihi belirlenir.</p>`,
+    'egtB.h3':'Biyoteknoloji Çalışmalarına Yönelik Proje Yönetimi Eğitimi','egtB.suf':'(Modül B-1)',
+    'egtB.body':`<p>Proje yönetim tekniklerinin biyoteknoloji alanı projelerine nasıl uyarlanabileceği konusunda bilgi ve uygulama kazandıran bir eğitim programıdır.</p>
+      <div><h4>Hedef</h4><p>Katılımcılara proje yönetim yeterlilikleri kazandırarak karmaşık bilimsel projeleri planlama ve yürütme becerisi kazandırmaktır. Bu kapsamda proje kapsamının belirlenmesi ve proje şablonunun oluşturulması, projenin kritik adımlarının belirlenmesi, farklı organizasyonel yapı türlerinin proje yönetimini nasıl etkilediği ve zaman çizelgesi, görev tanımları, maliyet tahminleri, görev bağımlılıkları, personel ve kaynak tahsisini içeren örnek bir proje planının nasıl geliştirileceği tartışılır.</p></div>
+      <div><h4>Program</h4>
+        <ul>
+          <li><b>Biyoteknoloji ve İlaç Sektöründe Proje Yönetimine Giriş:</b> sektör yaşam döngüsüne genel bakış (Ar-Ge'den ticarileştirmeye), bilimsel proje yönetimindeki zorluklar (düzenleyici engeller, yüksek başarısızlık/kayıp oranları, belirsizlik), yaşam bilimlerinde proje yöneticisinin rolü ve sorumlulukları</li>
+          <li><b>Proje Başlatma ve Kapsam Belirleme:</b> proje kapsamının, hedeflerinin ve çıktılarının tanımlanması, proje şablonunun oluşturulması, bilimsel organizasyonlarda paydaş tespiti, analizi ve yönetimi</li>
+          <li><b>Biyoteknolojide Organizasyonel Yapılar:</b> fonksiyonel, matris ve projeye dayalı (projectized) yapılar; organizasyonel tasarımın iletişimi, yetkiyi ve kaynak tahsisini nasıl etkilediği; disiplinler arası ekiplerin yönetimi (bilim insanları, ruhsatlandırma/mevzuat işleri, QA/QC, ticari birimler)</li>
+          <li><b>Proje Planlama, İş Kırılım Yapısı (WBS) ve Zamanlama:</b> karmaşık projeler için WBS geliştirilmesi, görev bağımlılıkları/sıralama/tahmin teknikleri, kritik yolun (critical path) belirlenmesi</li>
+          <li><b>Kaynak Tahsisi, Bütçeleme ve Maliyet Tahmini:</b> proje maliyetlerinin tahmini, risk yönetimi ve acil durum planlaması</li>
+          <li><b>Yürütme ve İzleme:</b> ilerlemenin takibi ve proje değişikliklerinin yönetimi, başarılı ve başarısız biyoteknoloji/ilaç projeleri üzerine vaka çalışmaları</li>
+        </ul>
+      </div>
+      <div class="svc-meta">
+        <div><dt>Süre</dt><dd>Kavramsal eğitimin toplam süresi 8 saattir.</dd></div>
+        <div><dt>Katılım Şartları</dt><dd>Tıp, diş ve ağız sağlığı, veterinerlik, eczacılık, kimya, biyokimya, biyoloji, moleküler biyoloji ve genetik, biyomühendislik, biyomedikal veya ilişkili alanlarda lisans düzeyinde eğitim almış olmak.</dd></div>
+        <div><dt>Belgeleme</dt><dd>Eğitim programı ve süresi eklenmiş katılım sertifikası düzenlenir.</dd></div>
+      </div>
+      <p class="svc-note">Başvuru için <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> adresine veya <a href="#iletisim">iletişim formumuza</a> yazabilirsiniz; sizinle kuracağımız irtibata göre eğitimin başlangıç tarihi belirlenir.</p>`,
+    'hucrehatti.h3':'Hücre Hatlarının Oluşturulması',
+    'hucrehatti.body':`<p>İstenen hücre hattından deneysel kullanım amaçlı hücre kültürü oluşturma hizmeti sunuyoruz.</p>
+      <ul>
+        <li>In vitro / in vivo araştırma amaçlı adherent hücrelerin kültürlenmesi (istenilen hücre hattı sağlanabilir; kemik iliği, adipoz doku, umbilikal kord ve dental dokudan mezenkimal kök hücre izolasyonu yapılabilir — primer dokular istem sahibi tarafından karşılanmalıdır)</li>
+        <li>Hücre çoğaltma, geçiş (passage) ve dondurma işlemleri</li>
+        <li>Kısa ve uzun süreli hücre bankacılığı</li>
+        <li>Deneye özel hücre hazırlığı (belirli yoğunlukta plating, farklı yüzey kaplamaları vb.)</li>
+        <li>Sterilite ve morfolojik kontrol</li>
+        <li>Hücre sayımı ve canlılık analizi</li>
+      </ul>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
+    'eksozom.h3':'Karakterize Edilmiş Ekstraselüler Vesikül (Eksozom) Eldesi',
+    'eksozom.body':`<p>Mezenkimal kök hücre kaynaklı, in vitro ve in vivo çalışmalarda kullanıma hazır eksozom sağlanmaktadır.</p>
+      <div class="svc-table-wrap"><table class="svc-table">
+        <thead><tr><th>Ürün Kodu</th><th>Ürün</th><th>Miktar</th></tr></thead>
+        <tbody>
+          <tr><td>EXO-1</td><td>İnsan Mezenkimal Kök Hücre Kaynaklı Eksozom</td><td>50 µg'lık ürün</td></tr>
+          <tr><td>EXO-2</td><td>İnsan Mezenkimal Kök Hücre Kaynaklı Eksozom</td><td>100 µg'lık ürün</td></tr>
+          <tr><td>EXO-3</td><td>İnsan Mezenkimal Kök Hücre Kaynaklı Eksozom</td><td>250 µg'lık ürün</td></tr>
+          <tr><td>EXO-5</td><td>HEK293 Hücre Kaynaklı Eksozom</td><td>50 µg'lık ürün</td></tr>
+          <tr><td>EXO-6</td><td>HEK293 Hücre Kaynaklı Eksozom</td><td>100 µg'lık ürün</td></tr>
+          <tr><td>EXO-7</td><td>HEK293 Hücre Kaynaklı Eksozom</td><td>250 µg'lık ürün</td></tr>
+          <tr><td>EXO-8</td><td>Talep edilen hücre hattından eksozom izolasyonu</td><td>50 µg'lık ürün</td></tr>
+          <tr><td>EXO-9</td><td>Talep edilen hücre hattından eksozom izolasyonu</td><td>100 µg'lık ürün</td></tr>
+        </tbody>
+      </table></div>
+      <div><h4>Karakterizasyon</h4>
+        <ul>
+          <li>Tüm numunelerde BCA yöntemi ile protein miktarı ve eksozom biyobelirteçleri (CD9, CD63, CD81 ve TSG101) SDS-PAGE / Western Blotting yöntemiyle tespit edilir.</li>
+          <li>Partikül konsantrasyonu ve boyutu nanopartikül izleme analizi (NTA) ile tespit edilir.</li>
+          <li>Ürünlerde sterilite analizleri yapılır.</li>
+        </ul>
+      </div>
+      <div class="cols">
+        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Eksozom izolasyon yöntemleri infografiği" loading="lazy" width="1600" height="1462"></div>
+        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Eksozom karakterizasyonu infografiği" loading="lazy" width="1600" height="873"></div>
+      </div>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
+    'gen.h3':'Memeli ve Prokaryotik Hücrelerde Gen ve Transkripsiyon Düzenleme İşlemleri',
+    'gen.body':`<ul><li>Gen aktarımı</li><li>CRISPR Cas13d aracılı kalıcı knockdown</li><li>CRISPR Cas9 ile gen knockout</li></ul>
+      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gen aktarma ve CRISPR teknolojileri infografiği" loading="lazy" width="1600" height="1462"></div>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
+    'mtt.h3':'MTT Analizi',
+    'mtt.body':`<ul>
+        <li>Adherent hücrelerde MTT canlılık analizi</li>
+        <li>Farklı ajanların (ilaç, kimyasal, ekstrakt vb.) hücre üzerine etkilerinin karşılaştırılması</li>
+        <li>Doz-cevap eğrileri ve IC50 hesaplamaları (talep doğrultusunda)</li>
+        <li>Spektrofotometrik ölçüm ve absorbans verilerinin raporlanması</li>
+        <li>Grafiksel sonuç sunumu ve kısa yorumlama (isteğe bağlı)</li>
+      </ul>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
+    'qpcr.body':`<ul>
+        <li>Kalitatif analizler (internal pozitif kontrol kullanılarak var/yok analizleri)</li>
+        <li>Absolute ve relatif gen miktar tayini</li>
+        <li>Gen ekspresyonu analizi (ΔΔCT yöntemi)</li>
+        <li>miRNA gen ekspresyon analizi</li>
+      </ul>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
+    'western.body':`<ul>
+        <li>İzole proteinlerde BCA yöntemiyle protein miktarı tayini</li>
+        <li>Proteinin moleküler ağırlığına uygun jel yüzdesinin seçilmesi</li>
+        <li>İndirgeyici (reducing) veya indirgeyici olmayan (non-reducing) koşullarda elektroforez</li>
+        <li>Coomassie boyama ile toplam protein profilinin görülmesi</li>
+        <li>Proteinlerin jelden membrana (PVDF veya nitroselüloz) transferi</li>
+        <li>Spesifik antikorlarla boyama</li>
+      </ul>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
+    'antimik.h3':'Antimikrobiyal Test Hizmetleri',
+    'antimik.body':`<p>Antimikrobiyal ürün testleriniz, ürün grubuna göre belirtilen standartlara uygun olarak gerçekleştirilir.</p>
+      <div class="cols">
+        <div><h4>Saf Bileşikler ve Solüsyonlar İçin (MIC Tayini)</h4>
+          <ul>
+            <li><b>ISO 16256:</b> enfeksiyöz hastalıklarda rol oynayan maya mantarlarına (Candida türleri gibi) karşı antimikrobiyal ajanların in vitro aktivitesinin test edilmesi; minimum inhibitör konsantrasyonu (MIC) sıvı mikrodilüsyon (broth microdilution) yöntemiyle belirlenir.</li>
+            <li><b>ISO 20776-1:</b> hızla üreyen aerobik bakterilere karşı antimikrobiyal ajanların in vitro aktivitesinin test edilmesi; sıvı ortamda standart MIC ve minimum bakterisidal konsantrasyon (MBC) tayini.</li>
+          </ul>
+        </div>
+        <div><h4>Yüzeyler, Polimerler ve Katı Materyaller İçin</h4>
+          <ul>
+            <li><b>ISO 22196:</b> plastikler ve diğer gözeneksiz yüzeylerdeki antibakteriyel aktivitenin ölçümü; inokülümün yüzeye damlatılıp inkübe edilmesi ve sağ kalan hücrelerin sayılması esasına dayanır.</li>
+            <li><b>ISO 20743:</b> tekstil ürünleri ve benzeri gözenekli yapıların antibakteriyel aktivitesinin tayini; yara örtüsü veya emici bant formatındaki taşıyıcılar için kullanılır.</li>
+          </ul>
+        </div>
+        <div><h4>Formülasyon ve Biyouyumluluk Değerlendirmeleri</h4>
+          <ul>
+            <li><b>ISO 11930:</b> topikal ürün ve formülasyonların antimikrobiyal koruma etkinliğinin (Challenge Test) değerlendirilmesi; cilde uygulanacak dermatolojik taşıyıcı sistemlerin mikrobiyal direnç ve stabilitesi için kullanılır.</li>
+            <li><b>ISO 10993 Serisi (özellikle 10993-5):</b> doğrudan bir antimikrobiyal test olmasa da, yeni nesil antimikrobiyal sistemlerin hücre kültürlerindeki in vitro sitotoksisitesini kanıtlamak için MIC/MBC testleriyle eş zamanlı yürütülmesi gereken temel materyal değerlendirme standardı.</li>
+            <li><b>ISO 16256:2021:</b> enfeksiyon hastalıklarına neden olan maya mantarlarının antifungal ilaçlara karşı direncini test etmek için kullanılan <a href="https://www.iso.org/standard/79379.html" target="_blank" rel="noopener">uluslararası standart</a>.</li>
+          </ul>
+        </div>
+        <div><h4>Disk Difüzyon Yöntemi</h4>
+          <p>Antimikrobiyal duyarlılık testleri, CLSI M02 ve M100 kılavuzlarında belirtilen kriterlere uygun olarak disk difüzyon yöntemiyle de sunulmaktadır.</p>
+        </div>
+      </div>
+      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimikrobiyal analiz hizmetleri infografiği" loading="lazy" width="1600" height="1462"></div>
+      <p class="svc-note">Fiyat ve hizmet şartları için bizimle iletişime geçebilirsiniz.</p>`,
     'markalar.eyebrow':'Yetkili Temsilcisi Olduğumuz Markalar','markalar.h2':'Temsil ettiğimiz markalar',
-    'markalar.p':'Marka logoları ve ürün grupları eklendiğinde bu alan doldurulacak.',
+    'markalar.p':'Diğer marka logoları ve ürün grupları eklendikçe bu alan güncellenecek.',
+    'markalar.asone':`AS ONE Corporation, 1962 yılında kurulan, merkezi Osaka, Japonya'da bulunan kapsamlı bir ticaret ve tedarik şirketidir. Özellikle bilimsel araştırma, endüstriyel tesisler ve sağlık/bakım sektörleri için laboratuvar ekipmanları, sarf malzemeleri ve araç-gereç tedariki konusunda uzmanlaşmıştır. Firmamız, sizlere As One laboratuvar cihaz ve sarf malzemelerini sağlamaktadır.`,
     'markalar.slot1':'Marka logosu 1','markalar.slot2':'Marka logosu 2','markalar.slot3':'Marka logosu 3','markalar.slot4':'Marka logosu 4',
     'altyapi.eyebrow':'Alt Yapımız','altyapi.h2':'Doku ve Hücre Laboratuvarımız',
     'altyapi.note':'Ekipman listesi paylaştığınız envanterle eklenecek.',
@@ -626,7 +1003,7 @@ const i18n={
     'kimiz.eyebrow':'About Us','kimiz.h2':'Continuing our research and development activities since 2021',
     'kimiz.p1':"At Tissuecare Biyoteknoloji A.Ş., we don't just carry out your molecular biology and bioengineering projects — we design and realize them together with you from start to finish.",
     'kimiz.p2':'From academic studies to public and private sector projects, we share our experience in developing products and methods for human and animal health and welfare, along with our services and infrastructure, with the scientific community.',
-    'kimiz.ekip.label':'Our Team','kimiz.ekip.text':'Our company is made up of a young and dynamic research team specialized in biochemistry, molecular biology, genetics, biotechnology, bioengineering and biomedicine.',
+    'kimiz.ekip.label':'Our Team','kimiz.ekip.text':'Our company is made up of a young and dynamic research team specialized in biochemistry, molecular biology, genetics, biotechnology, bioengineering and biomedicine. Our team works alongside, and in a complementary role with, university and industry researchers engaged in research and product development for human and animal health, to produce fast and reliable solutions.',
     'kimiz.misyon.label':'Mission','kimiz.misyon.text':'Tissuecare Biyoteknoloji A.Ş. was founded in 2021 to design, plan, execute, oversee and report end-to-end experimental research and development activities in the fields of molecular biotechnology, bioengineering and biomedicine, thereby bringing substitute and/or innovative diagnostic and treatment products to our country. We offer our experience, services and infrastructure in developing products or methods for human and animal health and welfare to universities and other public and private institutions.',
     'kimiz.vizyon.label':'Vision','kimiz.vizyon.text':'Tissuecare Biyoteknoloji A.Ş. aims to connect scientists in our country with the right resources, serving as a facilitator and source for methods and products that will improve human and animal health, welfare and quality of life over the next 10 years.',
     'degerler.eyebrow':'Our Values','degerler.h2':'Scientific ethics and reliability are non-negotiable for us',
@@ -650,13 +1027,156 @@ const i18n={
     'methods.1':'Plasmid amplification & isolation','methods.2':'Transfection & transduction','methods.3':'DNA / RNA isolation',
     'methods.4':'DNA / RNA quantification','methods.5':'Real-Time PCR','methods.6':'Protein quantification','methods.7':'SDS-PAGE – Western Blotting methods',
     'hizmetler.eyebrow':'Our Services / Sales','hizmetler.h2':'Training, production, and analysis services',
-    'hizmetler.p':'The short description under each heading will be filled in with content you provide.',
+    'hizmetler.p':'Click a heading below to expand it for more detail.',
     'svc1.h3':'Tissue–Stem Cell Application Training','svc2.h3':'KOSGEB/TÜBİTAK Grant Application Preparation Training',
     'svc3.h3':'Establishment of Cell Lines','svc4.h3':'Production of Characterized Extracellular Vesicles (Exosomes)',
     'svc5.h3':'Real-Time PCR Analysis','svc6.h3':'SDS-PAGE and Western Blotting Analysis',
     'svc.suffix':'(for experimental use)','svc.desc':'Description to be added.','svc.cta1':'Get Info','svc.cta2':'Send a Sample',
+    'egtA.h3':'Tissue–Stem Cell Application Training','egtA.suf':'(Module A)',
+    'egtA.body':`<p>A training program for professionals and prospective professionals in industry and academia, designed to build mammalian cell culture skills through theoretical instruction and one-on-one hands-on practice.</p>
+      <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="A moment from the Tissue–Stem Cell Application Training" loading="lazy" width="1400" height="764"></div>
+      <div><h4>Objective</h4><p>To provide knowledge and hands-on experience in obtaining mammalian cells from their tissues of origin under aseptic conditions; culturing and expanding isolated mammalian cells or cell lines while maintaining their continuity; and the processes of cryopreservation and recovering cryopreserved cells.</p></div>
+      <div class="cols">
+        <div><h4>Program — Conceptual Training</h4>
+          <ul>
+            <li><b>Introduction to Tissue and Cell Culture:</b> what is cell culture, finite and continuous cell cultures, cell culture conditions, cryopreservation, cell morphology, application areas</li>
+            <li><b>Laboratory Orientation:</b> biosafety and safe laboratory practice, essential equipment, laboratory space planning, aseptic technique, contamination monitoring and management</li>
+            <li><b>Cell Culture Fundamentals:</b> obtaining primary cell culture, cell lines, physical/chemical environment, cell morphology</li>
+            <li><b>Cell Culture Techniques:</b> maintaining culture continuity, subculturing adherent and suspension cultures, cryopreservation and cell banking, recovering cells from cryopreservation</li>
+            <li>Common problems encountered in tissue and cell culture, and their solutions</li>
+            <li>An assessment to measure training effectiveness and review any remaining topics</li>
+          </ul>
+        </div>
+        <div><h4>Program — Hands-On Training</h4>
+          <ul>
+            <li>Laboratory orientation</li><li>Applying aseptic techniques</li><li>Preparing culture media</li>
+            <li>Thawing cells</li><li>Subculturing</li><li>Determining cell count and viability</li><li>Freezing cells</li>
+          </ul>
+        </div>
+      </div>
+      <div class="svc-meta">
+        <div><dt>Duration</dt><dd>Conceptual training: 8 hours. Hands-on training: 1 day.</dd></div>
+        <div><dt>Eligibility</dt><dd>Undergraduate-level education in medicine, dentistry and oral health, veterinary medicine, pharmacy, chemistry, biochemistry, biology, molecular biology and genetics, bioengineering, biomedical engineering, or related fields. Those who do not attend the conceptual training may not join the hands-on training.</dd></div>
+        <div><dt>Certification</dt><dd>The training program and its duration are documented as a transcript; a certificate of attendance is also issued.</dd></div>
+      </div>
+      <p class="svc-note">To apply, email <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> or use <a href="#iletisim">our contact form</a>; the training start date will be set based on our correspondence with you.</p>`,
+    'egtB.h3':'Biotechnology Project Management Training','egtB.suf':'(Module B-1)',
+    'egtB.body':`<p>A training program that builds knowledge and practical skills in how project management techniques can be adapted to biotechnology projects.</p>
+      <div><h4>Objective</h4><p>To teach participants project management competencies so they can plan and execute complex scientific projects. This includes defining project scope and creating a project template, identifying a project's critical steps, how different organizational structure types affect project management, and how to develop a sample project plan covering timelines, task definitions, cost estimates, task dependencies, and staffing and resource allocation.</p></div>
+      <div><h4>Program</h4>
+        <ul>
+          <li><b>Introduction to Project Management in Biotechnology and Pharma:</b> an overview of the industry lifecycle (from R&D to commercialization), challenges in scientific project management (regulatory hurdles, high failure/attrition rates, uncertainty), the role and responsibilities of a project manager in life sciences</li>
+          <li><b>Project Initiation and Scope Definition:</b> defining project scope, objectives and deliverables, creating a project template, stakeholder identification, analysis and management in scientific organizations</li>
+          <li><b>Organizational Structures in Biotechnology:</b> functional, matrix and projectized organizational structures; how organizational design affects communication, authority and resource allocation; managing interdisciplinary teams (scientists, regulatory affairs, QA/QC, commercial units)</li>
+          <li><b>Project Planning, Work Breakdown Structure (WBS) and Scheduling:</b> developing a WBS for complex biotechnology projects, task dependencies/sequencing/estimation techniques, determining the critical path</li>
+          <li><b>Resource Allocation, Budgeting and Cost Estimation:</b> estimating project costs, risk management and contingency planning</li>
+          <li><b>Execution and Monitoring:</b> tracking progress and managing project changes, case studies of successful and unsuccessful biotech/pharma projects across the project lifecycle</li>
+        </ul>
+      </div>
+      <div class="svc-meta">
+        <div><dt>Duration</dt><dd>The conceptual training totals 8 hours.</dd></div>
+        <div><dt>Eligibility</dt><dd>Undergraduate-level education in medicine, dentistry and oral health, veterinary medicine, pharmacy, chemistry, biochemistry, biology, molecular biology and genetics, bioengineering, biomedical engineering, or related fields.</dd></div>
+        <div><dt>Certification</dt><dd>A certificate of attendance noting the training program and duration is issued.</dd></div>
+      </div>
+      <p class="svc-note">To apply, email <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> or use <a href="#iletisim">our contact form</a>; the training start date will be set based on our correspondence with you.</p>`,
+    'hucrehatti.h3':'Establishment of Cell Lines',
+    'hucrehatti.body':`<p>We provide cell culture establishment services from the cell line of your choice, for experimental use.</p>
+      <ul>
+        <li>Culturing of adherent cells for in vitro/in vivo research purposes (a specific cell line can be provided; mesenchymal stem cell isolation from bone marrow, adipose tissue, umbilical cord and dental tissue is available — primary tissue must be supplied by the requester)</li>
+        <li>Cell expansion, passage and freezing</li>
+        <li>Short- and long-term cell banking</li>
+        <li>Experiment-specific cell preparation (plating at a specific density, different surface coatings, etc.)</li>
+        <li>Sterility and morphological control</li>
+        <li>Cell counting and viability analysis</li>
+      </ul>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
+    'eksozom.h3':'Production of Characterized Extracellular Vesicles (Exosomes)',
+    'eksozom.body':`<p>Ready-to-use exosomes derived from mesenchymal stem cells are provided for in vitro and in vivo studies.</p>
+      <div class="svc-table-wrap"><table class="svc-table">
+        <thead><tr><th>Product Code</th><th>Product</th><th>Quantity</th></tr></thead>
+        <tbody>
+          <tr><td>EXO-1</td><td>Human Mesenchymal Stem Cell–Derived Exosome</td><td>50 µg product</td></tr>
+          <tr><td>EXO-2</td><td>Human Mesenchymal Stem Cell–Derived Exosome</td><td>100 µg product</td></tr>
+          <tr><td>EXO-3</td><td>Human Mesenchymal Stem Cell–Derived Exosome</td><td>250 µg product</td></tr>
+          <tr><td>EXO-5</td><td>HEK293 Cell–Derived Exosome</td><td>50 µg product</td></tr>
+          <tr><td>EXO-6</td><td>HEK293 Cell–Derived Exosome</td><td>100 µg product</td></tr>
+          <tr><td>EXO-7</td><td>HEK293 Cell–Derived Exosome</td><td>250 µg product</td></tr>
+          <tr><td>EXO-8</td><td>Exosome isolation from the requested cell line</td><td>50 µg product</td></tr>
+          <tr><td>EXO-9</td><td>Exosome isolation from the requested cell line</td><td>100 µg product</td></tr>
+        </tbody>
+      </table></div>
+      <div><h4>Characterization</h4>
+        <ul>
+          <li>Protein quantity is determined via the BCA method, and exosome biomarkers (CD9, CD63, CD81 and TSG101) are detected via SDS-PAGE / Western Blotting, in all samples.</li>
+          <li>Particle concentration and size are determined via Nanoparticle Tracking Analysis (NTA).</li>
+          <li>Sterility testing is performed on all products.</li>
+        </ul>
+      </div>
+      <div class="cols">
+        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="Exosome isolation methods infographic" loading="lazy" width="1600" height="1462"></div>
+        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="Exosome characterization infographic" loading="lazy" width="1600" height="873"></div>
+      </div>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
+    'gen.h3':'Gene and Transcription Regulation in Mammalian and Prokaryotic Cells',
+    'gen.body':`<ul><li>Gene transfer</li><li>CRISPR Cas13d–mediated permanent knockdown</li><li>Gene knockout with CRISPR Cas9</li></ul>
+      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="Gene transfer and CRISPR technologies infographic" loading="lazy" width="1600" height="1462"></div>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
+    'mtt.h3':'MTT Assay',
+    'mtt.body':`<ul>
+        <li>MTT viability assay on adherent cells</li>
+        <li>Comparing the effects of different agents (drugs, chemicals, extracts, etc.) on cells</li>
+        <li>Dose–response curves and IC50 calculations (on request)</li>
+        <li>Spectrophotometric measurement and reporting of absorbance data</li>
+        <li>Graphical presentation of results with brief interpretation (optional)</li>
+      </ul>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
+    'qpcr.body':`<ul>
+        <li>Qualitative analyses (presence/absence testing using an internal positive control)</li>
+        <li>Absolute and relative gene quantification</li>
+        <li>Gene expression analysis (ΔΔCT method)</li>
+        <li>miRNA gene expression analysis</li>
+      </ul>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
+    'western.body':`<ul>
+        <li>BCA protein quantification on isolated proteins</li>
+        <li>Selecting a gel percentage appropriate to the protein's molecular weight</li>
+        <li>Electrophoresis under reducing or non-reducing conditions</li>
+        <li>Coomassie staining to visualize the total protein profile</li>
+        <li>Transfer of proteins from the gel to a membrane (PVDF or nitrocellulose)</li>
+        <li>Staining with specific antibodies</li>
+      </ul>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
+    'antimik.h3':'Antimicrobial Testing Services',
+    'antimik.body':`<p>Your antimicrobial product tests are carried out in accordance with the standards specified for your product group.</p>
+      <div class="cols">
+        <div><h4>For Pure Compounds and Solutions (MIC Determination)</h4>
+          <ul>
+            <li><b>ISO 16256:</b> testing the in vitro activity of antimicrobial agents against yeasts involved in infectious diseases (such as Candida species); the primary reference for determining the minimum inhibitory concentration (MIC) of synthesized molecules against yeasts by the broth microdilution method.</li>
+            <li><b>ISO 20776-1:</b> testing the in vitro activity of antimicrobial agents against rapidly growing aerobic bacteria; covers standard MIC and minimum bactericidal concentration (MBC) determination procedures in broth for antibacterial screening.</li>
+          </ul>
+        </div>
+        <div><h4>For Surfaces, Polymers and Solid Materials</h4>
+          <ul>
+            <li><b>ISO 22196:</b> measuring antibacterial activity on plastics and other non-porous surfaces; used to test how well a developed polymer, microneedle array, or solid carrier surface inhibits microbial attachment and growth, based on applying the inoculum to the surface, incubating, and counting surviving cells.</li>
+            <li><b>ISO 20743:</b> determining the antibacterial activity of textile products and similar porous structures; specifically used for carriers designed as wound dressings or absorbent bandage formats.</li>
+          </ul>
+        </div>
+        <div><h4>Formulation and Biocompatibility Evaluations</h4>
+          <ul>
+            <li><b>ISO 11930:</b> evaluating the antimicrobial preservative efficacy (challenge test) of topical products and formulations; applied for the microbial resistance and stability of dermatological carrier systems for skin application.</li>
+            <li><b>ISO 10993 series (particularly 10993-5):</b> though not a direct antimicrobial test, a core biomaterial evaluation standard that must be run alongside efficacy (MIC/MBC) tests to demonstrate the in vitro cytotoxicity of newly developed antimicrobial systems in cell cultures.</li>
+            <li><b>ISO 16256:2021:</b> an <a href="https://www.iso.org/standard/79379.html" target="_blank" rel="noopener">international standard</a> used to test the resistance of yeasts causing infectious diseases to antifungal drugs.</li>
+          </ul>
+        </div>
+        <div><h4>Disk Diffusion Method</h4>
+          <p>Antimicrobial susceptibility testing is also offered via the disk diffusion method, in accordance with the criteria specified in the CLSI M02 and M100 guidelines.</p>
+        </div>
+      </div>
+      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="Antimicrobial testing services infographic" loading="lazy" width="1600" height="1462"></div>
+      <p class="svc-note">Please contact us for pricing and service terms.</p>`,
     'markalar.eyebrow':'Brands We Represent','markalar.h2':'Brands we represent',
-    'markalar.p':'This area will be filled in once brand logos and product groups are added.',
+    'markalar.p':'This area will be updated as more brand logos and product groups are added.',
+    'markalar.asone':`AS ONE Corporation, founded in 1962 and headquartered in Osaka, Japan, is a comprehensive trading and supply company. It specializes in supplying laboratory equipment, consumables and instruments for scientific research, industrial facilities, and the healthcare sector. Our company supplies you with AS ONE laboratory equipment and consumables.`,
     'markalar.slot1':'Brand logo 1','markalar.slot2':'Brand logo 2','markalar.slot3':'Brand logo 3','markalar.slot4':'Brand logo 4',
     'altyapi.eyebrow':'Our Infrastructure','altyapi.h2':'Our Tissue and Cell Laboratory',
     'altyapi.note':'The equipment list will be added once you share your inventory.',
@@ -693,7 +1213,7 @@ const i18n={
     'kimiz.eyebrow':'会社概要','kimiz.h2':'2021年より研究開発活動を続けています',
     'kimiz.p1':'Tissuecare Biyoteknoloji A.Ş.は、分子生物学・バイオエンジニアリングのプロジェクトを単に実行するだけでなく、構想から実現まで一貫してお客様と共に作り上げます。',
     'kimiz.p2':'学術研究から公共・民間セクターのプロジェクトまで、幅広い分野において、人と動物の健康と福祉に関する製品・手法開発の経験、サービス、基盤を科学界と共有しています。',
-    'kimiz.ekip.label':'私たちのチーム','kimiz.ekip.text':'当社は、生化学、分子生物学、遺伝学、バイオテクノロジー、バイオエンジニアリング、バイオメディカル分野を専門とする、若く活力あふれる研究チームで構成されています。',
+    'kimiz.ekip.label':'私たちのチーム','kimiz.ekip.text':'当社は、生化学、分子生物学、遺伝学、バイオテクノロジー、バイオエンジニアリング、バイオメディカル分野を専門とする、若く活力あふれる研究チームで構成されています。私たちのチームは、人と動物の健康に関する研究・製品開発に携わる大学および産業界の研究者と連携し、迅速かつ信頼性の高いソリューションを共に生み出すために、補完的な役割を担っています。',
     'kimiz.misyon.label':'ミッション','kimiz.misyon.text':'Tissuecare Biyoteknoloji A.Ş.は、分子生物工学、バイオエンジニアリング、バイオメディカル分野における実験的研究開発活動の設計・計画・実行・監督・報告を一貫して行い、代替的および/または革新的な診断・治療製品を自国にもたらすことを目的として2021年に設立されました。当社は、大学をはじめとする公共・民間機関に対し、人および動物の健康と福祉に関する製品・手法開発の経験、サービス、基盤を提供しています。',
     'kimiz.vizyon.label':'ビジョン','kimiz.vizyon.text':'Tissuecare Biyoteknoloji A.Ş.は、自国の科学者たちを適切な資源と結びつけることで、今後10年間で人および動物の健康、福祉、生活の質を向上させる手法や製品の仲介者・供給源となることを目指します。',
     'degerler.eyebrow':'私たちの価値観','degerler.h2':'科学的倫理と信頼性は、私たちにとって譲れない価値です',
@@ -717,13 +1237,156 @@ const i18n={
     'methods.1':'プラスミド増幅・精製','methods.2':'トランスフェクション・トランスダクション','methods.3':'DNA/RNA抽出',
     'methods.4':'DNA/RNA定量','methods.5':'リアルタイムPCR','methods.6':'タンパク質定量','methods.7':'SDS-PAGE・ウエスタンブロッティング',
     'hizmetler.eyebrow':'サービス・販売','hizmetler.h2':'トレーニング・製造・分析サービス',
-    'hizmetler.p':'各項目の説明文は、お客様からご提供いただく内容で更新される予定です。',
+    'hizmetler.p':'各項目のタイトルをクリックすると詳細が表示されます。',
     'svc1.h3':'組織・幹細胞応用トレーニング','svc2.h3':'KOSGEB/TÜBİTAK 助成金申請準備トレーニング',
     'svc3.h3':'細胞株の樹立','svc4.h3':'特性評価済み細胞外小胞(エクソソーム)の作製',
     'svc5.h3':'リアルタイムPCR分析','svc6.h3':'SDS-PAGE・ウエスタンブロッティング分析',
     'svc.suffix':'(実験用)','svc.desc':'説明は追って追加されます。','svc.cta1':'詳細を見る','svc.cta2':'サンプルを送る',
+    'egtA.h3':'組織・幹細胞応用トレーニング','egtA.suf':'(モジュールA)',
+    'egtA.body':`<p>産業界・学術界で活躍する、またはこれから活躍したい専門家・専門家候補を対象に、哺乳類細胞培養技術を座学と個別実習の両方で習得できるトレーニングプログラムです。</p>
+      <div class="ph"><img src="assets/images/egitim-doku-kok-hucre.jpg" alt="組織・幹細胞応用トレーニングの様子" loading="lazy" width="1400" height="764"></div>
+      <div><h4>目標</h4><p>無菌操作条件下で組織から哺乳類細胞を採取すること、単離した哺乳類細胞や細胞株を培養・増殖させて継続的に維持すること、そして凍結保存および凍結保存細胞の回収プロセスについて、知識と実務経験を身につけることを目的としています。</p></div>
+      <div class="cols">
+        <div><h4>プログラム — 座学</h4>
+          <ul>
+            <li><b>組織・細胞培養入門:</b> 細胞培養とは何か、有限・無限細胞培養、培養条件、凍結保存、細胞形態、応用分野</li>
+            <li><b>ラボ紹介:</b> バイオセーフティと安全なラボ運用、基本設備・機器、ラボ内スペース計画、無菌操作、コンタミネーションの監視と管理</li>
+            <li><b>細胞培養の基礎:</b> 初代細胞培養の取得、細胞株、物理的・化学的環境、細胞形態</li>
+            <li><b>細胞培養技術:</b> 培養の継続的維持、接着性・浮遊性培養の継代(サブカルチャー)、凍結保存とセルバンキング、凍結保存細胞の回収</li>
+            <li>組織・細胞培養でよくある問題とその解決法</li>
+            <li>研修効果の確認と未習得項目の復習を目的とした試験への参加</li>
+          </ul>
+        </div>
+        <div><h4>プログラム — 実習</h4>
+          <ul>
+            <li>ラボ紹介</li><li>無菌操作の実践</li><li>培地の調製</li>
+            <li>細胞の解凍</li><li>細胞培養の継代</li><li>細胞数と生存率の測定</li><li>細胞の凍結</li>
+          </ul>
+        </div>
+      </div>
+      <div class="svc-meta">
+        <div><dt>期間</dt><dd>座学は合計8時間、実習は1日間です。</dd></div>
+        <div><dt>参加条件</dt><dd>医学、歯科・口腔保健学、獣医学、薬学、化学、生化学、生物学、分子生物学・遺伝学、バイオエンジニアリング、バイオメディカル、またはこれらに関連する分野の学士レベルの教育を修了していること。座学に参加していない方は実習に参加できません。</dd></div>
+        <div><dt>修了証明</dt><dd>参加した研修プログラムと期間はトランスクリプトとして記録され、参加証明書が発行されます。</dd></div>
+      </div>
+      <p class="svc-note">お申し込みは <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> へのメール、または<a href="#iletisim">お問い合わせフォーム</a>からご連絡ください。ご連絡内容に応じて研修開始日を決定します。</p>`,
+    'egtB.h3':'バイオテクノロジー・プロジェクトマネジメント研修','egtB.suf':'(モジュールB-1)',
+    'egtB.body':`<p>プロジェクトマネジメント手法をバイオテクノロジー分野のプロジェクトにどのように応用できるかについて、知識と実践力を身につける研修プログラムです。</p>
+      <div><h4>目標</h4><p>参加者にプロジェクトマネジメントの能力を身につけていただき、複雑な科学プロジェクトの計画・遂行ができるようになることを目指します。具体的には、プロジェクト範囲の設定とプロジェクトテンプレートの作成、プロジェクトの重要なステップの特定、組織構造の種類がプロジェクトマネジメントに与える影響、そしてタイムライン・タスク定義・コスト見積もり・タスク依存関係・人員/リソース配分を含むプロジェクト計画例の作成方法について扱います。</p></div>
+      <div><h4>プログラム</h4>
+        <ul>
+          <li><b>バイオテクノロジー・製薬業界のプロジェクトマネジメント入門:</b> 業界のライフサイクル概観(研究開発から事業化まで)、科学プロジェクトマネジメントにおける課題(規制上の障壁、高い失敗・中止率、不確実性)、ライフサイエンス分野におけるプロジェクトマネージャーの役割と責任</li>
+          <li><b>プロジェクトの立ち上げと範囲設定:</b> プロジェクトの範囲・目標・成果物の定義、プロジェクトテンプレートの作成、科学系組織におけるステークホルダーの特定・分析・マネジメント</li>
+          <li><b>バイオテクノロジーにおける組織構造:</b> 機能別・マトリックス型・プロジェクト型組織構造、組織設計がコミュニケーション・権限・リソース配分に与える影響、学際的チーム(研究者、許認可/規制担当、QA/QC、事業部門)のマネジメント</li>
+          <li><b>プロジェクト計画、WBS(作業分解構成)とスケジューリング:</b> 複雑なバイオテクノロジープロジェクトのためのWBS作成、タスク依存関係・順序付け・見積り手法、クリティカルパスの特定</li>
+          <li><b>リソース配分、予算編成とコスト見積もり:</b> プロジェクトコストの見積もり、リスクマネジメントとコンティンジェンシー計画</li>
+          <li><b>実行とモニタリング:</b> 進捗管理とプロジェクト変更のマネジメント、プロジェクトライフサイクル全体を通じたバイオ/製薬プロジェクトの成功・失敗事例</li>
+        </ul>
+      </div>
+      <div class="svc-meta">
+        <div><dt>期間</dt><dd>座学の合計時間は8時間です。</dd></div>
+        <div><dt>参加条件</dt><dd>医学、歯科・口腔保健学、獣医学、薬学、化学、生化学、生物学、分子生物学・遺伝学、バイオエンジニアリング、バイオメディカル、またはこれらに関連する分野の学士レベルの教育を修了していること。</dd></div>
+        <div><dt>修了証明</dt><dd>研修プログラムと期間を記載した参加証明書が発行されます。</dd></div>
+      </div>
+      <p class="svc-note">お申し込みは <a href="mailto:info@tissuecarebiotech.com">info@tissuecarebiotech.com</a> へのメール、または<a href="#iletisim">お問い合わせフォーム</a>からご連絡ください。ご連絡内容に応じて研修開始日を決定します。</p>`,
+    'hucrehatti.h3':'細胞株の樹立',
+    'hucrehatti.body':`<p>ご要望の細胞株から、実験用の細胞培養を樹立するサービスを提供しています。</p>
+      <ul>
+        <li>In vitro/in vivo研究用の接着細胞の培養(ご希望の細胞株の提供が可能です。骨髄、脂肪組織、臍帯、歯科組織由来の間葉系幹細胞の単離も可能です — 初代組織はご依頼者様にご用意いただきます)</li>
+        <li>細胞の増殖、継代、凍結処理</li>
+        <li>短期・長期のセルバンキング</li>
+        <li>実験仕様に合わせた細胞の準備(特定密度でのプレーティング、各種表面コーティングなど)</li>
+        <li>無菌性および形態学的チェック</li>
+        <li>細胞数および生存率の測定</li>
+      </ul>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
+    'eksozom.h3':'特性評価済み細胞外小胞(エクソソーム)の作製',
+    'eksozom.body':`<p>間葉系幹細胞由来の、in vitro/in vivo研究にすぐ使用できるエクソソームを提供しています。</p>
+      <div class="svc-table-wrap"><table class="svc-table">
+        <thead><tr><th>製品コード</th><th>製品</th><th>数量</th></tr></thead>
+        <tbody>
+          <tr><td>EXO-1</td><td>ヒト間葉系幹細胞由来エクソソーム</td><td>50 µg製品</td></tr>
+          <tr><td>EXO-2</td><td>ヒト間葉系幹細胞由来エクソソーム</td><td>100 µg製品</td></tr>
+          <tr><td>EXO-3</td><td>ヒト間葉系幹細胞由来エクソソーム</td><td>250 µg製品</td></tr>
+          <tr><td>EXO-5</td><td>HEK293細胞由来エクソソーム</td><td>50 µg製品</td></tr>
+          <tr><td>EXO-6</td><td>HEK293細胞由来エクソソーム</td><td>100 µg製品</td></tr>
+          <tr><td>EXO-7</td><td>HEK293細胞由来エクソソーム</td><td>250 µg製品</td></tr>
+          <tr><td>EXO-8</td><td>ご希望の細胞株からのエクソソーム単離</td><td>50 µg製品</td></tr>
+          <tr><td>EXO-9</td><td>ご希望の細胞株からのエクソソーム単離</td><td>100 µg製品</td></tr>
+        </tbody>
+      </table></div>
+      <div><h4>キャラクタリゼーション</h4>
+        <ul>
+          <li>すべてのサンプルについて、BCA法によるタンパク質量測定、およびSDS-PAGE/ウエスタンブロッティングによるエクソソームバイオマーカー(CD9、CD63、CD81、TSG101)の検出を行います。</li>
+          <li>ナノ粒子トラッキング解析(NTA)により、粒子濃度と粒径を測定します。</li>
+          <li>製品の無菌検査を実施します。</li>
+        </ul>
+      </div>
+      <div class="cols">
+        <div class="ph"><img src="assets/images/eksozom-izolasyon-infografik.jpg" alt="エクソソーム単離方法のインフォグラフィック" loading="lazy" width="1600" height="1462"></div>
+        <div class="ph"><img src="assets/images/eksozom-karakterizasyon-infografik.jpg" alt="エクソソームキャラクタリゼーションのインフォグラフィック" loading="lazy" width="1600" height="873"></div>
+      </div>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
+    'gen.h3':'哺乳類・原核細胞における遺伝子・転写制御処理',
+    'gen.body':`<ul><li>遺伝子導入</li><li>CRISPR Cas13dによる恒久的ノックダウン</li><li>CRISPR Cas9による遺伝子ノックアウト</li></ul>
+      <div class="ph"><img src="assets/images/gen-crispr-infografik.jpg" alt="遺伝子導入・CRISPR技術のインフォグラフィック" loading="lazy" width="1600" height="1462"></div>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
+    'mtt.h3':'MTTアッセイ',
+    'mtt.body':`<ul>
+        <li>接着細胞のMTT生存率アッセイ</li>
+        <li>各種薬剤(医薬品、化学物質、抽出物など)の細胞への影響の比較</li>
+        <li>用量反応曲線とIC50の算出(ご要望に応じて)</li>
+        <li>分光光度計による測定と吸光度データの報告</li>
+        <li>結果のグラフ化と簡単な考察(オプション)</li>
+      </ul>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
+    'qpcr.body':`<ul>
+        <li>定性解析(内部陽性対照を用いた有無判定)</li>
+        <li>絶対的・相対的遺伝子定量</li>
+        <li>遺伝子発現解析(ΔΔCT法)</li>
+        <li>miRNA遺伝子発現解析</li>
+      </ul>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
+    'western.body':`<ul>
+        <li>単離タンパク質のBCA法によるタンパク質定量</li>
+        <li>タンパク質の分子量に適したゲル濃度の選択</li>
+        <li>還元または非還元条件での電気泳動</li>
+        <li>クマシー染色による総タンパク質プロファイルの確認</li>
+        <li>ゲルからメンブレン(PVDFまたはニトロセルロース)へのタンパク質の転写</li>
+        <li>特異抗体による染色</li>
+      </ul>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
+    'antimik.h3':'抗菌性試験サービス',
+    'antimik.body':`<p>抗菌製品試験は、製品グループごとに定められた規格に従って実施されます。</p>
+      <div class="cols">
+        <div><h4>純粋化合物・溶液向け(MIC測定)</h4>
+          <ul>
+            <li><b>ISO 16256:</b> 感染症に関与する酵母様真菌(カンジダ属など)に対する抗菌剤のin vitro活性試験。合成分子の酵母に対する最小発育阻止濃度(MIC)をブロスマイクロダイリューション法で決定するための第一次リファレンスです。</li>
+            <li><b>ISO 20776-1:</b> 急速に増殖する好気性細菌に対する抗菌剤のin vitro活性試験。抗菌スクリーニングのための、液体培地中での標準的なMICおよび最小殺菌濃度(MBC)決定手順を規定しています。</li>
+          </ul>
+        </div>
+        <div><h4>表面・ポリマー・固形材料向け</h4>
+          <ul>
+            <li><b>ISO 22196:</b> プラスチックその他の非多孔質表面における抗菌活性の測定。開発したポリマー、マイクロニードルアレイ、固体担体表面が微生物の付着・増殖をどの程度抑制するかを試験するために使用します。接種液を表面に滴下・培養し、生残菌数を計測する原理に基づきます。</li>
+            <li><b>ISO 20743:</b> 繊維製品および類似の多孔質構造の抗菌活性を測定します。創傷被覆材や吸収性包帯形態として設計された担体に特化して使用されます。</li>
+          </ul>
+        </div>
+        <div><h4>製剤・生体適合性評価</h4>
+          <ul>
+            <li><b>ISO 11930:</b> 外用製品・製剤の抗菌保存効力(チャレンジテスト)を評価します。皮膚に適用する皮膚科用担体システムの微生物抵抗性と安定性の評価に用いられます。</li>
+            <li><b>ISO 10993シリーズ(特に10993-5):</b> 直接的な抗菌試験ではありませんが、新たに開発した抗菌システムの細胞培養におけるin vitro細胞毒性を証明するために、有効性(MIC/MBC)試験と並行して実施すべき基本的な医療材料評価規格です。</li>
+            <li><b>ISO 16256:2021:</b> 感染症の原因となる酵母様真菌の抗真菌薬に対する耐性を試験するために用いられる<a href="https://www.iso.org/standard/79379.html" target="_blank" rel="noopener">国際規格</a>です。</li>
+          </ul>
+        </div>
+        <div><h4>ディスク拡散法</h4>
+          <p>CLSI M02およびM100ガイドラインに定められた基準に従い、ディスク拡散法による薬剤感受性試験も提供しています。</p>
+        </div>
+      </div>
+      <div class="ph"><img src="assets/images/antimikrobiyal-infografik.jpg" alt="抗菌性試験サービスのインフォグラフィック" loading="lazy" width="1600" height="1462"></div>
+      <p class="svc-note">価格およびサービス条件についてはお問い合わせください。</p>`,
     'markalar.eyebrow':'正規代理店ブランド','markalar.h2':'取扱ブランド',
-    'markalar.p':'ブランドロゴと製品カテゴリーが追加され次第、このエリアに表示されます。',
+    'markalar.p':'他のブランドロゴや製品カテゴリーが追加され次第、このエリアも更新されます。',
+    'markalar.asone':`AS ONE Corporationは、1962年創業、大阪府に本社を置く総合商社・サプライヤーです。特に科学研究、産業施設、ヘルスケア分野向けのラボ機器・消耗品・器具の供給を専門としています。当社は、AS ONE社のラボ機器・消耗品をお客様にご提供しています。`,
     'markalar.slot1':'ブランドロゴ1','markalar.slot2':'ブランドロゴ2','markalar.slot3':'ブランドロゴ3','markalar.slot4':'ブランドロゴ4',
     'altyapi.eyebrow':'設備・インフラ','altyapi.h2':'組織・細胞ラボ',
     'altyapi.note':'機器リストは、ご提供いただく在庫情報をもとに追加されます。',
@@ -766,6 +1429,10 @@ function applyLang(lang){
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const key=el.getAttribute('data-i18n');
       if(dict[key]!==undefined) el.textContent=dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const key=el.getAttribute('data-i18n-html');
+      if(dict[key]!==undefined) el.innerHTML=dict[key];
     });
     document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
       const key=el.getAttribute('data-i18n-ph');
